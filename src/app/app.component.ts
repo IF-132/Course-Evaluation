@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Course-Evaluation';
+
+  // TODO:  atribute "show" must be 'true' for unregistered user!
+  public show = true;
 }
