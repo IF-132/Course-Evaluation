@@ -16,8 +16,10 @@
     </mat-menu>
 
     <!-- atribute "show" must be 'true' in app.component for unregistered user! -->
-    
-    <a [hidden]="show" mat-button [matMenuTriggerFor]="dashboard">Dashboard</a>
+
+    <a [hidden]="!registered" mat-button [matMenuTriggerFor]="dashboard"
+      >Dashboard</a
+    >
     <mat-menu #dashboard="matMenu" yPosition="below">
       <a mat-menu-item>Groups</a>
       <a mat-menu-item>Teachers</a>
@@ -38,4 +40,67 @@
 
 <router-outlet></router-outlet>
 
-<footer>tutaj bude footer</footer>
+<footer>
+  <mat-grid-list cols="5" rowHeight="2:1">
+    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1">
+      <ul [hidden]="!registered">
+        Dashboard
+        <li><a href="/">Groups</a></li>
+        <li><a href="/">Teachers</a></li>
+        <li><a href="/">Students</a></li>
+      </ul>
+    </mat-grid-tile>
+    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1">
+      <ul>
+        Courses
+        <li><a href="/">Java</a></li>
+        <li><a href="/">C++</a></li>
+        <li><a href="/">Ruby</a></li>
+        <li><a href="/">JavaScript</a></li>
+        <li><a href="/">Node.js</a></li>
+        <li><a href="/">Python</a></li>
+      </ul>
+    </mat-grid-tile>
+
+    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1">
+      <ul>
+        User
+        <li [hidden]="registered"><a href="">Login</a></li>
+        <li><a href="">Edit profile</a></li>
+        <li><a href="">Edit Password</a></li>
+        <li><a href="">Passed Courses</a></li>
+        <li [hidden]="!registered"><a href="">Logout</a></li>
+      </ul>
+    </mat-grid-tile>
+    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1">
+      <ul>
+        Контакти
+        <li><a href="tel:+380-32-240-9999">+380-32-240-9999</a></li>
+        <li>
+          вул. Садова, 2д <br />
+          м. Львів, Україна 79021
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/company/softserve/mycompany/verification/ "
+            target="_blank"
+            >LINKEDIN</a
+          >
+        </li>
+        <li>
+          <a href="https://www.facebook.com/SoftServeCompany" target="_blank"
+            >FACEBOOK</a
+          >
+        </li>
+      </ul>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="1" colspan="5">
+      © Copyright 2021 SoftServe
+    </mat-grid-tile>
+    <!--  -->
+  </mat-grid-list>
+</footer>
