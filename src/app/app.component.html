@@ -72,9 +72,9 @@
       <div class="list">
         <span>User</span>
         <a href="regist" [hidden]="registered">Registration</a>
-        <a href="">Edit profile</a>
-        <a href="">Edit Password</a>
-        <a href="">Passed Courses</a>
+        <a href="" [hidden]="!registered">Edit profile</a>
+        <a href=""[hidden]="!registered">Edit Password</a>
+        <a href=""[hidden]="!registered">Passed Courses</a>
         <a href="" [hidden]="!registered">Logout</a>
       </div>
     </mat-grid-tile>
