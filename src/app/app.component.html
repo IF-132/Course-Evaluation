@@ -41,66 +41,59 @@
 <router-outlet></router-outlet>
 
 <footer>
-  <mat-grid-list cols="5" rowHeight="2:1">
+  <mat-grid-list cols="6" rowHeight="2:1">
     <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1"></mat-grid-tile>
     <mat-grid-tile rowspan="2" colspan="1">
-      <ul [hidden]="!registered">
-        Dashboard
-        <li><a href="/">Groups</a></li>
-        <li><a href="/">Teachers</a></li>
-        <li><a href="/">Students</a></li>
-      </ul>
+      <div class="list">
+        <span [hidden]="!registered" >Dashboard</span>
+        <a href="/" [hidden]="!registered">Groups</a>
+        <a href="/" [hidden]="!registered">Teachers</a>
+        <a href="/" [hidden]="!registered">Students</a>
+      </div>
     </mat-grid-tile>
     <!--  -->
     <mat-grid-tile rowspan="2" colspan="1">
-      <ul>
-        Courses
-        <li><a href="/">Java</a></li>
-        <li><a href="/">C++</a></li>
-        <li><a href="/">Ruby</a></li>
-        <li><a href="/">JavaScript</a></li>
-        <li><a href="/">Node.js</a></li>
-        <li><a href="/">Python</a></li>
-      </ul>
+      <div class="list">
+        <span >Courses</span>
+        <a href="/">Java</a>
+        <a href="/">C++</a>
+        <a href="/">Ruby</a>
+        <a href="/">JavaScript</a>
+        <a href="/">Node.js</a>
+        <a href="/">Python</a>
+      </div>
+    </mat-grid-tile>
+    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1">
+      <div class="list">
+        <span >User</span>
+        <a href="" [hidden]="registered">Login</a>
+        <a href="">Edit profile</a>
+        <a href="">Edit Password</a>
+        <a href="">Passed Courses</a>
+        <a href="" [hidden]="!registered">Logout</a>
+      </div>
+    </mat-grid-tile>
+    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1">
+      <div class="list">
+        <span >Зв'язок з нами</span>
+        <a href="tel:+380-32-240-9999">+380-32-240-9999</a>
+        <a
+          href="https://www.linkedin.com/company/softserve/mycompany/verification/ "
+          target="_blank"
+          >LINKEDIN</a
+        >
+        <a href="https://www.facebook.com/SoftServeCompany" target="_blank"
+          >FACEBOOK</a
+        >
+        <a href="mailto:jdoe@softserveinc.com">Напишіть нам</a>
+      </div>
     </mat-grid-tile>
 
-    <!--  -->
-    <mat-grid-tile rowspan="2" colspan="1">
-      <ul>
-        User
-        <li [hidden]="registered"><a href="">Login</a></li>
-        <li><a href="">Edit profile</a></li>
-        <li><a href="">Edit Password</a></li>
-        <li><a href="">Passed Courses</a></li>
-        <li [hidden]="!registered"><a href="">Logout</a></li>
-      </ul>
-    </mat-grid-tile>
-    <!--  -->
-    <mat-grid-tile rowspan="2" colspan="1">
-      <ul>
-        Контакти
-        <li><a href="tel:+380-32-240-9999">+380-32-240-9999</a></li>
-        <li>
-          вул. Садова, 2д <br />
-          м. Львів, Україна 79021
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/company/softserve/mycompany/verification/ "
-            target="_blank"
-            >LINKEDIN</a
-          >
-        </li>
-        <li>
-          <a href="https://www.facebook.com/SoftServeCompany" target="_blank"
-            >FACEBOOK</a
-          >
-        </li>
-      </ul>
-    </mat-grid-tile>
-    <mat-grid-tile rowspan="1" colspan="5">
-      © Copyright 2021 SoftServe
-    </mat-grid-tile>
-    <!--  -->
+    <mat-grid-tile rowspan="2" colspan="1"></mat-grid-tile>
   </mat-grid-list>
+  <p style="text-align: center; margin-top: 20px">© Copyright 2021 SoftServe</p>
+  <br />
 </footer>
