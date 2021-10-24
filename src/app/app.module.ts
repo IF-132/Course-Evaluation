@@ -4,14 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardRoutingModule } from './dashboard/modules/dashboard-routing.module';
+import { DashboardModule } from './dashboard/modules/dashboard.module';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // DashboardRoutingModule,
+    MaterialModule,
+    DashboardModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -1,0 +1,44 @@
+<div class="dashboard">
+  <!-- <aside menu -->
+  <div class="dashboard__aside-menu">
+    <div class="dashboard__logo">
+      <img src="/assets/img/dashboard/logo_serve.png" alt="logo">
+    </div>
+
+    <div class="dashboard__aside-nav" #nav>
+
+      <div class="dashboard__dash aside-field field-active" #d (click)="handleToggleClassActive(d);">
+        <a routerLink="/dashboard" class="aside-link">
+          <div class="aside-nav-img">
+            <img src="/assets/img/dashboard/dashboard.png" alt="dashboard">
+          </div>
+          <div class="aside-nav-title">
+            Dashboard
+          </div>
+        </a>
+      </div>
+
+      <div class="dashboard__students aside-field" #s (click)="handleToggleClassActive(s);">
+        <a routerLink="/dashboard/students" class="aside-link">
+          <div class="aside-nav-img">
+            <img src="/assets/img/dashboard/student.png" alt="student">
+          </div>
+          <div class="aside-nav-title">
+            Students
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="dashboard__aside-bottom-img">
+      <img src="/assets/img/dashboard/clipart3569292.png" alt="team">
+    </div>
+  </div>
+  <!-- >aside menu -->
+  <!-- <aside content -->
+  <div class="dashboard__content">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- >aside content -->
+</div>

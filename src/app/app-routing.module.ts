@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ChildrenOutletContexts } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashComponent } from './dashboard/dash/dash.component';
+import { StudentsComponent } from './dashboard/students/students.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: "dashboard", component: DashboardComponent,
+    children: [
+      {path: "", component: DashComponent},
+      {path: "students", component: StudentsComponent},
+    ]
+  },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
