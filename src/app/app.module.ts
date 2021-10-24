@@ -5,21 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HelloPageComponent } from './components/hello-page/hello-page.component';
-import { FormsModule } from '@angular/forms';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatMenuModule } from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
+import { RegistComponent } from './components/auth/regist/regist.component';
+import { LoginComponent } from './components/auth/regist/login/login.component';
+import { TwoFAComponent } from './components/auth/regist/two-fa/two-fa.component';
+import { angularMaterial } from './share/material/material';
 
 @NgModule({
-  declarations: [AppComponent, HelloPageComponent],
+  declarations: [AppComponent, HelloPageComponent, RegistComponent, LoginComponent, TwoFAComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatIconModule,
+    angularMaterial
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

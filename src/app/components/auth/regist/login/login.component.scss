@@ -1,0 +1,92 @@
+
+.login {
+    height: 100%;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+
+    .login-card {
+        width: 25%;
+        margin: auto;
+
+        .card-header {
+
+            mat-card-title {
+                text-align: center;
+                margin: 4% 0 10% 0;
+            }
+
+            span {
+                position: absolute;
+                top: 2%;
+                right: 2%;
+                cursor: pointer;
+            }
+        }
+
+        .card-content {
+
+            form {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                input {
+                    border: none;
+                }
+
+                mat-form-field{
+                    margin: 0 auto 4% auto;
+                    width: 80%;
+                    ::ng-deep .mat-form-field-outline {
+                        background-color: #F6F8FA;
+                        
+                    }
+                    ::ng-deep .mat-form-field-wrapper {
+                        padding: 0;
+                    }
+                    ::ng-deep .mat-form-field-underline {
+                        display: none;
+                    }
+                }          
+
+                button {
+                    width: 80%;
+                    margin: 5% auto 5% auto;
+                    border-radius: 40px;
+                    padding: 2%;
+                    background-color: #1295C0;
+                    box-shadow: 0px 4px 4px 0px #00000040;
+                }
+
+            }
+
+            .anotherType-login {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                p{
+                    margin: auto;
+                    width: max-content;
+                }
+
+                .webServices {
+                    margin: auto;
+                }
+            }
+            .input-label {
+                display: block;
+            }
+        }
+    }
+}
+
+button {
+    border: none;
+    padding: 0;
+    img {
+        padding: 0;
+    }
+}

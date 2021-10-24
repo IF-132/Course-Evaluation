@@ -1,0 +1,42 @@
+<div class="login">
+    <mat-card class="login-card">
+        <div class="card-header">
+            <mat-card-title>
+                Login
+            </mat-card-title>
+            <span>
+                <mat-icon>close</mat-icon>
+            </span>
+        </div>
+        <mat-card-content class="card-content">
+            <form>                
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Type your email">
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Type your password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+                
+                <button mat-raised-button color="primary">Sign In</button>                
+            </form>
+            <div class="anotherType-login">
+                <p>
+                    Or Sign In using
+                </p>
+                <div class="webServices">                
+                    <button>
+                        <img src="../../../../assets/icons/free-icon-facebook-174848.png" alt="Facebook Icon">
+                    </button>
+                    <button>
+                        <img src="../../../../assets/icons/google-symbol.png" alt="Facebook Icon">
+                    </button>                
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
