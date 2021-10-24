@@ -5,7 +5,7 @@
     </a>
   </div>
   <nav>
-    <a mat-button [matMenuTriggerFor]="courses">Courses</a>
+    <a [matMenuTriggerFor]="courses">Courses</a>
     <mat-menu #courses="matMenu" yPosition="below">
       <a mat-menu-item>Java</a>
       <a mat-menu-item>C++</a>
@@ -17,16 +17,14 @@
 
     <!-- atribute "show" must be 'true' in app.component for unregistered user! -->
 
-    <a [hidden]="!registered" mat-button [matMenuTriggerFor]="dashboard"
-      >Dashboard</a
-    >
+    <a [hidden]="!registered" [matMenuTriggerFor]="dashboard">Dashboard</a>
     <mat-menu #dashboard="matMenu" yPosition="below">
       <a mat-menu-item>Groups</a>
       <a mat-menu-item>Teachers</a>
       <a mat-menu-item>Students</a>
     </mat-menu>
 
-    <a mat-button [matMenuTriggerFor]="user">
+    <a [hidden]="!registered" [matMenuTriggerFor]="user">
       <span class="iconify" data-icon="mdi:account-circle"></span> User
     </a>
     <mat-menu #user="matMenu" yPosition="below">
@@ -35,6 +33,11 @@
       <a mat-menu-item>Passed Courses</a>
       <a mat-menu-item>Logout</a>
     </mat-menu>
+
+    <a [hidden]="registered" href="login">
+      <span class="iconify" data-icon="mdi:login"></span>
+      Login</a
+    >
   </nav>
 </header>
 
@@ -46,7 +49,7 @@
     <mat-grid-tile rowspan="2" colspan="1"></mat-grid-tile>
     <mat-grid-tile rowspan="2" colspan="1">
       <div class="list">
-        <span [hidden]="!registered" >Dashboard</span>
+        <span [hidden]="!registered">Dashboard</span>
         <a href="/" [hidden]="!registered">Groups</a>
         <a href="/" [hidden]="!registered">Teachers</a>
         <a href="/" [hidden]="!registered">Students</a>
@@ -55,7 +58,7 @@
     <!--  -->
     <mat-grid-tile rowspan="2" colspan="1">
       <div class="list">
-        <span >Courses</span>
+        <span>Courses</span>
         <a href="/">Java</a>
         <a href="/">C++</a>
         <a href="/">Ruby</a>
@@ -67,8 +70,8 @@
     <!--  -->
     <mat-grid-tile rowspan="2" colspan="1">
       <div class="list">
-        <span >User</span>
-        <a href="" [hidden]="registered">Login</a>
+        <span>User</span>
+        <a href="regist" [hidden]="registered">Registration</a>
         <a href="">Edit profile</a>
         <a href="">Edit Password</a>
         <a href="">Passed Courses</a>
@@ -78,7 +81,7 @@
     <!--  -->
     <mat-grid-tile rowspan="2" colspan="1">
       <div class="list">
-        <span >Зв'язок з нами</span>
+        <span>Зв'язок з нами</span>
         <a href="tel:+380-32-240-9999">+380-32-240-9999</a>
         <a
           href="https://www.linkedin.com/company/softserve/mycompany/verification/ "

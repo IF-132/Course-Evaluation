@@ -56,9 +56,12 @@
     .btn {
       border: none;
       width: 15em;
-      height: 3em;
+      height: 1.5em;
       font-size: 1.7em;
       font-weight: 600;
+      text-align: center;
+      padding-top: 1rem;
+      text-decoration: none;
       border-radius: 30px;
       background: #1295c0;
       color: #fff;
@@ -110,7 +113,7 @@
 }
 
 @media screen and (max-width: 740px) {
-  .bg-like-image{
+  .bg-like-image {
     width: 55%;
   }
   .mat-grid-list {
@@ -122,6 +125,8 @@
         font-size: 1.1em;
       }
       .btn {
+        padding-top: 0.5rem;
+        padding-bottom: 0.3rem;
         font-size: 1em;
       }
     }
