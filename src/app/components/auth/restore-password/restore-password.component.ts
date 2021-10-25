@@ -34,5 +34,9 @@ export class RestorePasswordComponent implements OnInit {
       console.log(this.form)
       this.ifSubmited = true;
     }
+
+    public backToResend(): void {
+      this.ifSubmited = false;
+    }
 }
   
