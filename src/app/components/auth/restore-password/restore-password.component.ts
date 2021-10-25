@@ -7,8 +7,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./restore-password.component.scss']
 })
 export class RestorePasswordComponent implements OnInit {
-
-    public form: FormGroup | any;;
+    ifSubmited = false;
+    public form: FormGroup | any;
     
 
     public ngOnInit(): void {
@@ -32,6 +32,7 @@ export class RestorePasswordComponent implements OnInit {
     
     public onSubmit(): void {
       console.log(this.form)
+      this.ifSubmited = true;
     }
 }
   
