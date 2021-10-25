@@ -1,14 +1,16 @@
-<div class="regist" #regist>
+<div class="regist">
   <mat-card class="regist-card">
     <div class="card-header">
       <mat-card-title> Registration Form </mat-card-title>
       <span>
-        <button><mat-icon>close</mat-icon></button>
+        <button>
+          <a href=""><mat-icon>close</mat-icon></a>
+        </button>
       </span>
     </div>
     <mat-card-content class="card-content">
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline" >
+        <mat-form-field appearance="outline">
           <mat-label>First Name</mat-label>
           <input
             type="text"
@@ -103,28 +105,20 @@
               hidePassConf ? "visibility_off" : "visibility"
             }}</mat-icon>
           </button>
-          <mat-error *ngIf="confirmPassword.hasError('dontMatch')">Password do not match!</mat-error>
+          <mat-error *ngIf="confirmPassword.hasError('dontMatch')"
+            >Password do not match!</mat-error
+          >
         </mat-form-field>
 
-        <button class="btn" mat-raised-button color="primary">Registre</button>
-      </form>
-      <div class="anotherType-login">
-        <p>Or Registre by using</p>
-        <div class="webServices">
-          <button>
-            <img
-              src="../../../../assets/icons/free-icon-facebook-174848.png"
-              alt="Facebook Icon"
-            />
-          </button>
-          <button>
-            <img
-              src="../../../../assets/icons/google-symbol.png"
-              alt="Facebook Icon"
-            />
-          </button>
+        <div class="check">
+          <mat-checkbox 
+          labelPosition="after"
+          formControlName="twoFA"
+          > 2-Step Verification </mat-checkbox>
         </div>
-      </div>
+
+        <button class="btn" mat-raised-button color="primary">Sign In</button>
+      </form>
     </mat-card-content>
   </mat-card>
 </div>

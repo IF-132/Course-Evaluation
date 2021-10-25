@@ -1,3 +1,5 @@
+
+
 header {
   display: flex;
   justify-content: space-between;
@@ -35,8 +37,11 @@ header {
 
 footer {
   width: 90%;
-  margin: 0 auto;
+  margin: 3em auto;
   line-height: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
 
       .list{
         display: flex;
@@ -48,7 +53,7 @@ footer {
       span {
         font-weight: 700;
         color: #1295c0;
-        margin-bottom: 10px
+        margin-bottom: 1em;
       }
       a {
         align-self: baseline;
@@ -57,7 +62,7 @@ footer {
         color: #211d4d;
         transition: color 0.25s ease-in-out;
         text-decoration: none;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
         font-weight: 500;
       }
       a:hover {
@@ -84,12 +89,12 @@ footer {
   }
 
   footer{
-    font-size: 0.6rem;
+    font-size: 1em;
     span{
       margin-bottom: 5px;
     }
     a{
-      margin-bottom: 1px;
+      margin-bottom: 10px;
     }
   }
 }
@@ -109,14 +114,14 @@ footer {
     }
   }
   footer{
-    font-size: 0.4rem;
+    font-size: 0.9em;
 
     span{
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     a{
-      margin-bottom: 0;
+      margin-bottom: 10px;
       line-height: 7px;
 
     }
@@ -138,9 +143,10 @@ footer {
     }
   }
   footer{
-    font-size: 0.3em;
+    font-size: 0.7em;
+
     a{
-      margin-bottom: 0;
+      margin-bottom: 10px;
       line-height: 5px;
     }
   }

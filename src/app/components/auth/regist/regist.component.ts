@@ -13,6 +13,8 @@ import {
   styleUrls: ['./regist.component.scss'],
 })
 export class RegistComponent implements OnInit {
+  close = true;
+
   public hidePass = true;
   public hidePassConf = true;
 
@@ -38,6 +40,7 @@ export class RegistComponent implements OnInit {
         ),
       ]),
       confirmPassword: new FormControl('', [Validators.required]),
+      twoFA: new FormControl(''),
     });
   }
 
@@ -59,6 +62,10 @@ export class RegistComponent implements OnInit {
 
   get confirmPassword() {
     return this.myForm.get('confirmPassword') as FormArray;
+  }
+
+  get twoFA() {
+    return this.myForm.get('twoFA') as FormArray;
   }
 
   // Password match func

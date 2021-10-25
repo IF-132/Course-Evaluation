@@ -7,8 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HelloPageComponent } from './components/hello-page/hello-page.component';
 import { RegistComponent } from './components/auth/regist/regist.component';
 import { LoginComponent } from './components/auth/login/login.component';
-import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 import { angularMaterial } from './share/material/material';
+import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 
 @NgModule({
   declarations: [AppComponent, HelloPageComponent, RegistComponent, LoginComponent, TwoFAComponent],
