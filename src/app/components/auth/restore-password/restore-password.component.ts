@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-restore-password',
@@ -10,6 +11,7 @@ export class RestorePasswordComponent implements OnInit {
     ifSubmited = false;
     public form: FormGroup | any;
     
+    constructor (private accountService: AccountService) { }
 
     public ngOnInit(): void {
       this.form = new FormGroup({
