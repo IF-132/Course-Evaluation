@@ -10,7 +10,9 @@ import { AccountService } from 'src/app/services/account.service';
 export class RestorePasswordComponent implements OnInit {
     ifSubmited = false;
     public form: FormGroup | any;
-    
+    public errorMessage = '';
+    repos: any;
+
     constructor (private accountService: AccountService) { }
 
     public ngOnInit(): void {
@@ -28,6 +30,7 @@ export class RestorePasswordComponent implements OnInit {
     }
 
     getEmailError() {
+      this.errorMessage = '';
       return this.email.hasError('required') ? 'You must enter an email address' :
       this.email.hasError('email') ? 'Not a valid email' : '';
     }
@@ -35,6 +38,15 @@ export class RestorePasswordComponent implements OnInit {
     public onSubmit(): void {
       console.log(this.form)
       this.ifSubmited = true;
+      this.accountService.restorPassword(this.form.value.email)
+      .subscribe((response) => {
+        console.log(response);
+        this.ifSubmited = true;
+      },
+      (error) => {
+          this.errorMessage = error.message;
+      });
+
     }
 
     public backToResend(): void {
