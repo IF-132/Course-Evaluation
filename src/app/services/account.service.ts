@@ -3,30 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = `https://courseevaluator.herokuapp.com/api/v1`
+const baseUrl = `https://courseevaluator-main.herokuapp.com/api/v1`
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  //private resetUrl = baseUrl + 'auth/restorePassword';
-  //private changeUrl = baseUrl + 'auth/changePassword';
-
   constructor(private http: HttpClient) {}
 
-  // public restorPassword(email: string): Observable<any> {
-  //   return this.http.get(this.resetUrl + "?email="+ email);
-  // }
-
-  
-  public restorPassword(email: string): Observable<any> {
+  public restorePassword(email: string): Observable<any> {
     email = email.trim();
     const params = new HttpParams()
       .set('email', email);
 
 
     return this.http.get(`${baseUrl}/auth/restorePassword`, {params});
+}
+
+  public resetPassword(token: string, password: string, confirmPassword: string) {
+    return this.http.post(`${baseUrl}/auth/changePassword`, { token, password, confirmPassword})
+  
 }
 
 // private handleError(error: HttpErrorResponse) {

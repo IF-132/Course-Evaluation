@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
 import { angularMaterial } from './share/material/material.module';
+import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RestorePasswordComponent
+    RestorePasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    angularMaterial
+    angularMaterial,
   ],
   providers: [],
   bootstrap: [AppComponent]

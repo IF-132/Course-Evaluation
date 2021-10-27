@@ -8,10 +8,9 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./restore-password.component.scss']
 })
 export class RestorePasswordComponent implements OnInit {
-    ifSubmited = false;
+    isSubmited = false;
     public form: FormGroup | any;
     public errorMessage = '';
-    repos: any;
 
     constructor (private accountService: AccountService) { }
 
@@ -37,11 +36,11 @@ export class RestorePasswordComponent implements OnInit {
     
     public onSubmit(): void {
       console.log(this.form)
-      this.ifSubmited = true;
-      this.accountService.restorPassword(this.form.value.email)
+      this.isSubmited = true;
+      this.accountService.restorePassword(this.form.value.email)
       .subscribe((response) => {
         console.log(response);
-        this.ifSubmited = true;
+        this.isSubmited = true;
       },
       (error) => {
           this.errorMessage = error.message;
@@ -50,7 +49,7 @@ export class RestorePasswordComponent implements OnInit {
     }
 
     public backToResend(): void {
-      this.ifSubmited = false;
+      this.isSubmited = false;
     }
 }
   
