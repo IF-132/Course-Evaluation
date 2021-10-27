@@ -1,1 +1,36 @@
-<p>dash works!</p>
+<div class="dash">
+  <!-- TODO header auth User - -->
+  <div class="dash__header header_dash">
+    <div class="header-dash__content">
+     <!-- TODO It should be Search Componennt  START- -->
+      <!-- <div class="header-dash__search">
+        <mat-form-field class="example-full-width" appearance="fill"  style="width:50vw" >
+             <input matInput placeholder="search" value="">
+          <mat-icon matPrefix class="my-icon">
+            <div class="header-dash__img">
+              <img src="/assets/img/dashboard/loupe.png" alt="serch">
+            </div>
+          </mat-icon>
+        </mat-form-field>
+      </div> -->
+    <!-- TODO It should be Search Componennt  END- -->
+      <div class="header-dash__user">
+        <app-profile-user></app-profile-user>
+      </div>
+    </div>
+  </div>
+  <!-- TODO- When Will be API Teacher Rating & User data, temporary img -->
+  <div class="dash__teacher-user-data">
+    <app-teacher-rating></app-teacher-rating>
+
+  </div>
+  <div class="dash__footer">
+    <app-available-courses class="courses"></app-available-courses>
+    <app-total-info class="info"></app-total-info>
+    <div class="chat">
+      <div class="chat__content">
+        <img src="/assets/img/dashboard/chat_w.png" alt="chat">
+      </div>
+    </div>
+  </div>
+</div>

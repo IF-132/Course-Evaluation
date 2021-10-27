@@ -1,0 +1,19 @@
+.course {
+  display: flex;
+  margin: 2% 3% 0 3%;
+  align-items: center;
+
+  &__teacher {
+    background-color: rgb(60, 131, 212);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem ;
+    padding: 2% 2%;
+    margin-right: 2%;
+  }
+  &__description {
+    font-size: 1.2rem;
+  }
+
+}

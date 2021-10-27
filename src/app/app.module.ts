@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
-// import { DashboardRoutingModule } from './dashboard/modules/dashboard-routing.module';
-import { DashboardModule } from './dashboard/modules/dashboard.module';
-import { MaterialModule } from './shared/material/material.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { angularMaterial } from './shared/material/material';
+
+
 
 @NgModule({
   declarations: [
@@ -17,10 +17,9 @@ import { MaterialModule } from './shared/material/material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // DashboardRoutingModule,
-    MaterialModule,
+    angularMaterial,
     DashboardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
