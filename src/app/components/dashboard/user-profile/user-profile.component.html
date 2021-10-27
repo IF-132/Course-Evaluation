@@ -1,80 +1,13 @@
 <!DOCTYPE html>
 
 <section class="user-profile">
-  <mat-card class="user-info">
-      <div class="user-image">
-        <img id="user-picture" src="\assets\images\user-profile\1d026ae729d1072523125add2c04518d.jpg" alt="user-picture" />
-      </div>
-      <div class="user-data">
-        <mat-card-title>FName LName</mat-card-title>
-        <mat-card-subtitle>Student</mat-card-subtitle>
-      </div>
-      <div class="side-nav">
-        <mat-list>
-          <mat-list-item >
-            <div mat-line><a href="#"><mat-icon mat-list-icon>dashboard</mat-icon>Dashboard</a></div>
-          </mat-list-item>
-          <mat-list-item >
-            <div mat-line><a href="#"><mat-icon mat-list-icon>logout</mat-icon>Logout</a></div>
-          </mat-list-item>
-        </mat-list>
-      </div>
-  </mat-card>
+  <app-u-p-data
+    [userId]="tokenData.id"
+    [userRole]="tokenData.role"
+  ></app-u-p-data>
   <div class="edit-info">
-    <mat-card>
-      <form class="edit-user-data">
-            <mat-card-title>Edit user data</mat-card-title>
-            <mat-card-actions>
-              <mat-form-field  appearance="fill">
-                <mat-label>First name*</mat-label>
-                <input matInput type="text" id="user-name" />
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Last name*</mat-label>
-                <input matInput type="text" id="user-last-name" />
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Email*</mat-label>
-                <input matInput type="email" id="user-email" />
-              </mat-form-field>
-              <button mat-raised-button color="primary">Update data</button>
-            </mat-card-actions>
-      </form>
-    </mat-card>
-    <mat-divider></mat-divider>
-    <mat-card>
-      <form  class="edit-user-picture">
-        <mat-card-title>Edit user picture</mat-card-title>
-        <mat-card-actions>
-          <mat-form-field appearance="fill">
-            <label for="user-picture"></label>
-            <input matInput id="user-picture" accept="image/*" />
-          </mat-form-field>
-          <button mat-raised-button color="primary">Update picture</button>
-          <button mat-raised-button color="warn">Delete picture</button>
-        </mat-card-actions>
-      </form>
-    </mat-card>
-    <mat-divider></mat-divider>
-    <mat-card>
-      <form class="edit-user-password">
-        <mat-card-title>Edit user password</mat-card-title>
-        <mat-card-actions>
-          <mat-form-field appearance="fill">
-            <mat-label for="user-password">Input old password*</mat-label>
-            <input matInput id="old-user-password" type="password" />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label for="user-password">Input new password*</mat-label>
-            <input matInput id="new-user-password" type="password" />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label for="user-password">Confirm new password*</mat-label>
-            <input matInput id="confirm-new-user-password" type="password" />
-          </mat-form-field>
-          <button mat-raised-button color="primary">Save changes</button>
-        </mat-card-actions>
-      </form>
-    </mat-card>
+    <app-u-p-update-name></app-u-p-update-name>
+    <app-u-p-update-picture></app-u-p-update-picture>
+    <app-u-p-update-password></app-u-p-update-password>
   </div>
 </section>
