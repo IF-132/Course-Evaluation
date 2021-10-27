@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-user-profile',
@@ -9,6 +10,7 @@ export class UserProfileComponent implements OnInit {
   constructor() {}
 
   //TODO: get User id and Role from token like this
+  //tokenData : {};
   tokenData = {
     sub: 'katrych1234@gmail.com',
     role: [/*'ROLE_ADMIN',*/ 'ROLE_STUDENT'],
@@ -19,7 +21,9 @@ export class UserProfileComponent implements OnInit {
   };
 
   //TODO: get id and role(String) from token
-  ngOnInit(): void {
+  ngOnInit() {
+    // let token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYXRyeWNoMTIzNEBnbWFpbC5jb20iLCJyb2xlIjpbXSwiaWQiOjIyLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJpYXQiOjE2MzUyNDE0NTQsImV4cCI6MTYzNTMyNzg1NH0.dnK3dfc92RICy-1RRp5vkElNdjmUZUzRH_C5FMXyOfo";
+    // this.tokenData = jwt_decode(token);
     console.log("I'm ready");
   }
 }

@@ -2,33 +2,35 @@
 
 <!-- User info card -->
 <mat-card class="user-info">
-  <div class="user-image">
-    <img
-      id="user-picture"
-      [src]="
-        userData.profilePicture !== ''
-          ? userData.profilePicture
-          : defaultUserPictureURL
-      "
-      alt="user-picture"
-    />
-  </div>
-  <div class="user-data">
-    <mat-card-title
-      >{{ userData.firstName }} {{ userData.lastName }}</mat-card-title
-    >
-    <mat-card-subtitle>{{ userData.email }}</mat-card-subtitle>
-    <mat-card-subtitle *ngFor="let role of userRole">
-      {{
-        role === "ROLE_ADMIN"
-          ? "Admin"
-          : role === "ROLE_STUDENT"
-          ? "Student"
-          : role === "ROLE_TEACHER"
-          ? "Teacher"
-          : "User"
-      }}</mat-card-subtitle
-    >
+  <div class="pic-and-name">
+    <div class="user-image">
+      <img
+        id="user-picture"
+        [src]="
+          userData.profilePicture !== ''
+            ? userData.profilePicture
+            : defaultUserPictureURL
+        "
+        alt="user-picture"
+      />
+    </div>
+    <div class="user-data">
+      <mat-card-title
+        >{{ userData.firstName }} {{ userData.lastName }}</mat-card-title
+      >
+      <mat-card-subtitle>{{ userData.email }}</mat-card-subtitle>
+      <mat-card-subtitle *ngFor="let role of userRole">
+        {{
+          role === "ROLE_ADMIN"
+            ? "Admin"
+            : role === "ROLE_STUDENT"
+            ? "Student"
+            : role === "ROLE_TEACHER"
+            ? "Teacher"
+            : "User"
+        }}</mat-card-subtitle
+      >
+    </div>
   </div>
 
   <!-- Side Menu -->

@@ -19,3 +19,21 @@
 mat-form-field {
     margin: 0 5% 0.5em 0;
 }
+
+@media screen and (max-device-width: 480px) {
+  mat-card {
+      text-align: center;
+  }
+
+  .user-data-form-items {
+      align-items: center;
+  }
+
+  .user-data-input {
+      justify-content: center;
+  }
+
+  mat-form-field {
+      margin: auto;
+  }
+}

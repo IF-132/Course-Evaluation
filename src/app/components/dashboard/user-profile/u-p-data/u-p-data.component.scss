@@ -1,72 +1,106 @@
+.user-info {
+  max-height: 100%;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10%;
+}
+
 .user-image {
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #user-picture {
-    width: 60%;
-    height: auto;
-    border-radius: 50%;
-    padding: 0;
-    margin: 0;
-}
-
-.user-info {
-    background-color: #F2F2F2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10%;
+  width: 60%;
+  height: auto;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
 }
 
 .mat-card-subtitle {
-    margin: 0;
-    margin-bottom: 0.3em;
+  margin: 0;
+  margin-bottom: 0.3em;
 }
 
 .user-data {
-    align-self: center;
-    justify-self: center;
-    text-align: center;
-    padding: 1em;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  padding: 1em;
 }
 
 .side-nav a {
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 }
 
 .side-nav a:hover {
-    text-shadow: 0 0 0.5em gray;
+  text-shadow: 0 0 0.5em gray;
 }
 
 .side-nav p {
-    margin: 0px;
-    padding: 4px;
-    vertical-align: bottom;
-    font-size: larger;
+  margin: 0px;
+  padding: 4px;
+  vertical-align: bottom;
+  font-size: larger;
 }
 
 .side-nav-link {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .mat-icon {
-    height: 1em;
-    width: auto;
+  height: 1em;
+  width: auto;
 }
 
 .side-nav li {
-    list-style: none;
-    padding-bottom: 0.5em;
+  list-style: none;
+  padding-bottom: 0.5em;
 }
 
 .side-nav ul {
-    padding: 0 1em;
+  padding: 0 1em;
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) {
+  .user-info {
+    flex-direction: row;
+    height: auto;
+    padding: 1em;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  #user-picture {
+    width: 30%;
+  }
+
+  .side-nav {
+    display: none;
+  }
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 640px) {
+  #user-picture {
+    width: 30%;
+  }
+}
+
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #user-picture {
+    width: 40%;
+  }
 }
