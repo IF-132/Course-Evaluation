@@ -4,7 +4,10 @@
   </div>
 
   <div class="profile-user__username-content">
-    <div class="profile-user__username">User user</div>
+    <div class="spinner" *ngIf="loaderService.isLoading | async">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="profile-user__username"> {{user?.firstName}} {{user?.lastName}} </div>
     <div class="profile-user__open-close-usermenu">
       <img (click)="isOpen = !isOpen" [ngClass]="{'closed': isOpen}" class="open-settings"
         src="/assets/img/dashboard/arr-op.png" alt="arrow">
@@ -14,9 +17,22 @@
   </div>
 
   <div [ngClass]="{'closed': !isOpen}" class="profile-user__settings closed">
-    <mat-list>
-      <mat-list-item style="cursor: pointer" > Settings </mat-list-item>
-      <mat-list-item (click)="isOpen = !isOpen" style="cursor: pointer">  Close </mat-list-item>
-     </mat-list>
+    <mat-nav-list>
+      <mat-list-item style="cursor: pointer; border-bottom: 1px solid silver;" >
+         <mat-icon>home</mat-icon>
+         <mat-list-item> Settings</mat-list-item>
+      </mat-list-item>
+
+      <mat-list-item style="cursor: pointer;  border-bottom: 1px solid silver;" >
+        <mat-icon>logout</mat-icon>
+        <mat-list-item> Logout</mat-list-item>
+     </mat-list-item>
+
+      <mat-list-item (click)="isOpen = !isOpen" style="cursor: pointer; border-bottom: 1px solid silver;">
+        <mat-icon style="color: red;">close</mat-icon>
+        <mat-list-item> Close</mat-list-item>
+      </mat-list-item>
+
+     </mat-nav-list>
   </div>
 </div>

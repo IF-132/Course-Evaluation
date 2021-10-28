@@ -3,18 +3,14 @@
   flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-
   margin: 0 4% 0 4%;
   &__teacher-user-data {
     width: 100%;
     height: 400px;
-    // background-image: url("/assets/img/dashboard/cropped-background.png");
-    // background-size: cover;
-    // background-repeat: no-repeat;
   }
   &__footer {
     display: flex;
-    margin-top: 8%;
+    margin-top: 5%;
   }
 }
 .header-dash {
@@ -27,7 +23,6 @@
   }
 
   &__user {
-    width: 10%;
     position: relative;
   }
 
@@ -43,7 +38,7 @@
 }
 
 .chat {
-  flex: 1 1 200px;
+  flex: 0 1 100px;
   margin-top: 4%;
   display: flex;
   justify-content: center;
@@ -59,26 +54,19 @@
 }
 
 .courses {
-  flex: 1 1 600px;
+  flex: 1 1 550px;
   margin-right: 2%;
 }
 
 .info {
-  flex: 1 1 300px;
+  flex: 1 1 250px;
 }
 
-@media (max-width: 1640px) {
-  .header-dash {
-    &__user {
-      width: 13%;
-    }
-  }
-}
 
 @media (max-width: 1440px) {
   .dash {
     &__footer {
-      margin-top: 3%;
+      margin-top: 4%;
     }
   }
 
@@ -87,11 +75,13 @@
       margin-bottom: 45px;
     }
   }
-}
-@media (max-width: 1310px) {
-  .header-dash {
-    &__user {
-      width: 18%;
+  .chat {
+    display: flex;
+    align-items: center;
+    flex: 1 1 100px;
+    &__content {
+      width: 100px;
+      height: 100px;
     }
   }
 }
@@ -102,7 +92,7 @@
       margin-bottom: 40px;
     }
     &__user {
-      width: 22%;
+      //width: 22%;
       margin-top: 1%;;
     }
   }
@@ -112,23 +102,6 @@
   .dash {
     &__footer {
       position: relative;
-    }
-  }
-  .chat {
-    display: flex;
-    align-items: center;
-
-    &__content {
-      width: 100px;
-      height: 100px;
-    }
-  }
-}
-
-@media (max-width: 858px) {
-  .header-dash {
-    &__user {
-      width: 24%;
     }
   }
 }
@@ -152,7 +125,6 @@
   }
 }
 
-
 @media (max-width: 830px) {
   .dash {
     &__footer {
@@ -165,9 +137,6 @@
     }
   }
   .header-dash {
-    &__user {
-      width: 25%;
-    }
     &__content {
       justify-content: center;
       padding-bottom: 2%;

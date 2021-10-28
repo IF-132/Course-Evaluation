@@ -12,6 +12,9 @@ import { CourseComponent } from './components/available-courses/components/cours
 import { TeacherRatingComponent } from './components/teacher-rating/teacher-rating.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { CoursesComponent } from './courses/courses.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { CoursesComponent } from './courses/courses.component';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
