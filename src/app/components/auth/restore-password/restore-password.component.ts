@@ -35,17 +35,13 @@ export class RestorePasswordComponent implements OnInit {
     }
     
     public onSubmit(): void {
-      console.log(this.form)
-      this.isSubmited = true;
       this.accountService.restorePassword(this.form.value.email)
       .subscribe((response) => {
-        console.log(response);
         this.isSubmited = true;
       },
       (error) => {
-          this.errorMessage = error.message;
+          this.errorMessage = error.error.message;
       });
-
     }
 
     public backToResend(): void {

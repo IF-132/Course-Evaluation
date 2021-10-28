@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ChangePasswordModel } from '../models/change-password.model';
 
 const baseUrl = `https://courseevaluator-main.herokuapp.com/api/v1`
 
@@ -17,14 +18,14 @@ export class AccountService {
     const params = new HttpParams()
       .set('email', email);
 
-
     return this.http.get(`${baseUrl}/auth/restorePassword`, {params});
-}
+  }
 
-  public resetPassword(token: string, password: string, confirmPassword: string) {
-    return this.http.post(`${baseUrl}/auth/changePassword`, { token, password, confirmPassword})
-  
-}
+  public changePassword(body: ChangePasswordModel) {
+    return this.http.post(`${baseUrl}/auth/changePassword`, body);
+  }
+
+
 
 // private handleError(error: HttpErrorResponse) {
 //   if (error.status === 500) {

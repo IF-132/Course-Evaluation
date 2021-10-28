@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import {ActivatedRoute} from "@angular/router";
+import { ChangePasswordModel } from '../../../models/change-password.model';
 
 @Component({
   selector: 'app-change-password',
@@ -13,8 +14,10 @@ export class ChangePasswordComponent implements OnInit {
   public form: FormGroup | any;
   public hidePass = true;
   public hidePassConf = true;
-  token = null;
-
+  public errorMessage = '';
+  public showResendLinkButton= false;
+  private token: string = '';
+  
   constructor(private accountService: AccountService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,8 +31,7 @@ export class ChangePasswordComponent implements OnInit {
       confirmPassword: new FormControl('', [Validators.required]),
     });
 
-    const token = this.activatedRoute.snapshot.queryParams['token'];
-   
+    this.token = this.activatedRoute.snapshot.queryParams['token'];
   }
 
   get password() {
@@ -41,6 +43,9 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onPasswordChange() {
+    this.errorMessage = '';
+    this.showResendLinkButton = false;
+
     if (this.confirmPassword.value == this.password.value) {
       this.confirmPassword.setErrors(null);
     } else {
@@ -50,8 +55,23 @@ export class ChangePasswordComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const Data = { ...this.form.value };
-      console.log(Data);
+      const formValues = this.form.getRawValue();
+      let requestParams = new ChangePasswordModel(
+        formValues.password,
+        formValues.confirmPassword,
+        this.token);
+
+      this.accountService.changePassword(requestParams)
+        .subscribe(()=> {
+          this.errorMessage = '';
+          window.location.href='/login';
+        },
+        (error)=> {
+          this.errorMessage = error.error.message;
+          if (error.error.error === 'ConfirmationTokenException') {
+            this.showResendLinkButton = true;
+          }
+        });
       this.form.reset();
     }
   }
