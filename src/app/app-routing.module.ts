@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'hello-page', component: HelloPageComponent},
   { path: 'regist', component: RegistComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'app-two-fa', component: TwoFAComponent },
+  { path: 'two-fa', component: TwoFAComponent },
   
 ];
 

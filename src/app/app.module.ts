@@ -9,17 +9,22 @@ import { RegistComponent } from './components/auth/regist/regist.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { angularMaterial } from './share/material/material';
 import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HelloPageComponent, RegistComponent, LoginComponent, TwoFAComponent],
+  declarations: [
+    AppComponent,
+    HelloPageComponent,
+    RegistComponent,
+    LoginComponent,
+    TwoFAComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    angularMaterial
-
-    
+    HttpClientModule,
+    angularMaterial,
   ],
   providers: [],
   bootstrap: [AppComponent],

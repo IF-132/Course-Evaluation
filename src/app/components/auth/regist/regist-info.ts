@@ -20,7 +20,7 @@ export class SignUpInfo {
     this.email = email;
     this.password = password;
     this.confirmPassword = confirmPassword;
-    this.role = ['ROLE_USER'];
+    this.role = ['ROLE_STUDENT'];
     this.twoFA = twoFA;
   }
 }

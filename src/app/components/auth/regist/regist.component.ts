@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormArray,
@@ -5,7 +6,10 @@ import {
   FormControl,
   FormGroup,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-regist',
@@ -15,30 +19,34 @@ import {
 export class RegistComponent implements OnInit {
   public hidePass = true;
   public hidePassConf = true;
+  public qrCodeImg = '';
 
-  public myForm: FormGroup | any;
+  public myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  public formError: string = '';
+
+  constructor(
+    private fb: FormBuilder,
+    private _http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.myForm = new FormGroup({
-      firstName: new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-      ]),
-      lastName: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.pattern(
-          '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&_*-]).{8,}$'
-        ),
-      ]),
-      confirmPassword: new FormControl('', [Validators.required]),
-      twoFA: new FormControl(''),
+    this.myForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&_*-]).{8,}$'
+          ),
+        ],
+      ],
+      confirmPassword: ['', [Validators.required]],
+      active_2fa: ['true'],
     });
   }
 
@@ -61,8 +69,8 @@ export class RegistComponent implements OnInit {
   get confirmPassword() {
     return this.myForm.get('confirmPassword') as FormArray;
   }
-  get twoFA() {
-    return this.myForm.get('twoFA') as FormArray;
+  get active_2fa() {
+    return this.myForm.get('active_2fa') as FormArray;
   }
 
   // Password match func
@@ -76,11 +84,37 @@ export class RegistComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    if (this.myForm.valid) {
-      const Data = { ...this.myForm.value };
-      console.log(Data);
-      this.myForm.reset();
+  onRegist() {
+    if (!this.myForm.valid) {
+      this.formError = 'Please compleate Registration Form!';
     }
+    const Data = { ...this.myForm.value };
+    console.log(Data);
+    if (this.myForm.valid) {
+      this._http
+        .post<any>(
+          'https://courseevaluator-main.herokuapp.com/api/v1/auth/reg',
+          this.myForm.value
+        )
+        .subscribe(
+          (res) => {
+            console.log('Sign up - successfull!');
+            console.log(res, res.body);
+            this.myForm.clearValidators();
+            if (this.active_2fa) {
+              this.qrCodeImg = res.body.qrCodeImage;
+              this.router.navigate(['app-two-fa']);
+            } else {
+              this.router.navigate(['login']);
+            }
+          },
+          (err) => {
+            this.formError = err.error.message + '!';
+            console.log('Something went wrong!');
+            console.log(this.formError);
+          }
+        );
+    }
+  
   }
 }
