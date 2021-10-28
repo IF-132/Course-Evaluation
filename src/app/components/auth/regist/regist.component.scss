@@ -6,7 +6,7 @@
   z-index: 10;
 
   .regist-card {
-    min-width: 300px;
+    min-width: 350px;
     width: 25%;
     margin: auto;
     .card-header {
@@ -70,9 +70,34 @@
 
         p {
           margin: auto;
-          width: max-content;
-        }
+          width: 80%;
+          display: flex;
+          flex-direction: row;
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          letter-spacing: 0em;
+          color: #3c4852;
 
+          a{
+            text-decoration: none;
+            color: #211d4d;
+          }
+        }
+        p:before,
+        p:after {
+          content: "";
+          flex: 1 1;
+          border-bottom: 1px solid #e0dede;
+          margin: auto;
+        }
+        p:before {
+          margin-right: 19px;
+        }
+        p:after {
+          margin-left: 19px;
+        }
         .webServices {
           margin: auto;
         }

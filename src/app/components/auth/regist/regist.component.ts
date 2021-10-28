@@ -13,8 +13,6 @@ import {
   styleUrls: ['./regist.component.scss'],
 })
 export class RegistComponent implements OnInit {
-  close = true;
-
   public hidePass = true;
   public hidePassConf = true;
 
@@ -63,7 +61,6 @@ export class RegistComponent implements OnInit {
   get confirmPassword() {
     return this.myForm.get('confirmPassword') as FormArray;
   }
-
   get twoFA() {
     return this.myForm.get('twoFA') as FormArray;
   }
@@ -72,7 +69,7 @@ export class RegistComponent implements OnInit {
   // https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6
 
   onPasswordChange() {
-    if (this.confirmPassword.value == this.password.value) {
+    if (this.confirmPassword.value === this.password.value) {
       this.confirmPassword.setErrors(null);
     } else {
       this.confirmPassword.setErrors({ dontMatch: true });

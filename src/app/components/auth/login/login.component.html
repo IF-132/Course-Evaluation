@@ -1,74 +1,80 @@
-<div class="login-popup" [style.display]="popupStatus ? 'block': 'none'">
-    <div id="popup"></div>
-    <div class="login">
-        <mat-card class="login-card">
-            <div class="card-header">
-                <mat-card-title>
-                    Login
-                </mat-card-title>
-                <span (click)="closePopup()">
-                    <mat-icon>close</mat-icon>
-                </span>
-            </div>
-            <mat-card-content class="card-content">
-                <form [formGroup]="form">                
-                    <mat-form-field appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input type="email" matInput placeholder="Type your email" formControlName="email">                   
-                        <mat-icon matSuffix>perm_identity</mat-icon>
-                        <mat-error *ngIf="email.touched && email.invalid && !email.hasError('required')">
-                            Please enter valid e-mail!
-                        </mat-error>
-                        <mat-error *ngIf="email.hasError('required')">
-                            Email is <strong>required</strong>
-                        </mat-error>
-                    </mat-form-field>
+<div class="login-popup" [style.display]="popupStatus ? 'block' : 'none'">
+  <div id="popup"></div>
+  <div class="login">
+    <mat-card class="login-card">
+      <div class="card-header">
+        <mat-card-title> Login </mat-card-title>
+        <span (click)="closePopup()">
+          <mat-icon>close</mat-icon>
+        </span>
+      </div>
+      <mat-card-content class="card-content">
+        <form [formGroup]="form">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              placeholder="Type your email"
+              formControlName="email"
+            />
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error
+              *ngIf="
+                email.touched && email.invalid && !email.hasError('required')
+              "
+            >
+              Please enter valid e-mail!
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
 
-                    <mat-form-field appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input [type]="hidePass ? 'password' : 'text' " matInput placeholder="Type your password" formControlName="password">
-                        <button
-                            type="button"
-                            mat-icon-button
-                            matSuffix
-                            (click)="hidePass = !hidePass"
-                            [attr.aria-label]="'Hide password'"
-                            [attr.aria-pressed]="hidePass"
-                        >
-                            <mat-icon>
-                                {{ hidePass ? "lock" : "lock_open" }}
-                            </mat-icon>
-                        </button>
-                        <mat-error *ngIf="password.touched && password.invalid">
-                            Password should have capital letter, at least 1 number,
-                            symbol(#?!@$%^&_*-) and at least 8 characters!
-                        </mat-error>
-                    </mat-form-field>
-                    
-                    <button 
-                        mat-raised-button 
-                        color="primary" 
-                        class="submit-btn" 
-                        (click)="submitForm()" 
-                        [disabled]="form.invalid ? true : false"
-                    >
-                        SIGN IN
-                    </button>                
-                </form>
-                <div class="anotherType-login">              
-                    <p>
-                        or sign in using
-                    </p>                  
-                    <div class="webServices">                
-                        <button>
-                            <img src="/assets/icons/facebookIcon.svg" alt="Facebook Icon" id="facebookIcon">
-                        </button>
-                        <button>
-                            <img src="/assets/icons/googleIcon.svg" alt="Facebook Icon" id="googleIcon">
-                        </button>                
-                    </div>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              [type]="hidePass ? 'password' : 'text'"
+              matInput
+              placeholder="Type your password"
+              formControlName="password"
+            />
+            <button
+              type="button"
+              mat-icon-button
+              matSuffix
+              (click)="hidePass = !hidePass"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hidePass"
+            >
+              <mat-icon>
+                {{ hidePass ? "lock" : "lock_open" }}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="password.touched && password.invalid">
+              Password should have capital letter, at least 1 number,
+              symbol(#?!@$%^&_*-) and at least 8 characters!
+            </mat-error>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            color="primary"
+            class="submit-btn"
+            (click)="submitForm()"
+            [disabled]="form.invalid ? true : false"
+          >
+            SIGN IN
+          </button>
+        </form>
+        <div class="anotherType-login">
+          <br />
+          <p>
+            <a routerLink="/regist">SIGN UP</a>
+          </p>
+          <br />
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

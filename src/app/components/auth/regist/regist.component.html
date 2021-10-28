@@ -1,11 +1,9 @@
-<div class="regist">
+<div class="regist" #regist>
   <mat-card class="regist-card">
     <div class="card-header">
       <mat-card-title> Registration Form </mat-card-title>
       <span>
-        <button>
-          <a href=""><mat-icon>close</mat-icon></a>
-        </button>
+        <button><mat-icon>close</mat-icon></button>
       </span>
     </div>
     <mat-card-content class="card-content">
@@ -117,8 +115,15 @@
           > 2-Step Verification </mat-checkbox>
         </div>
 
-        <button class="btn" mat-raised-button color="primary">Sign In</button>
+        <button class="btn" mat-raised-button color="primary">Registre</button>
       </form>
+      <div class="anotherType-login"> 
+        <br>             
+        <p>
+            <a routerLink="/login">LOG IN</a>
+        </p>  
+        <br>                
+    </div>
     </mat-card-content>
   </mat-card>
 </div>

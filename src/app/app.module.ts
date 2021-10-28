@@ -10,6 +10,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { angularMaterial } from './share/material/material';
 import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 
+
 @NgModule({
   declarations: [AppComponent, HelloPageComponent, RegistComponent, LoginComponent, TwoFAComponent],
   imports: [
