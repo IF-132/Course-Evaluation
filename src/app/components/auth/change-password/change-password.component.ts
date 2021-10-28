@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import {ActivatedRoute} from "@angular/router";
-import { ChangePasswordModel } from '../../../models/change-password.model';
+import { PasswordRestoreDto } from '../../../share/models/PasswordRestoreDto';
 
 @Component({
   selector: 'app-change-password',
@@ -56,15 +56,15 @@ export class ChangePasswordComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const formValues = this.form.getRawValue();
-      let requestParams = new ChangePasswordModel(
-        formValues.password,
-        formValues.confirmPassword,
-        this.token);
+      let requestParams: PasswordRestoreDto = {
+        confirmPassword: formValues.confirmPassword,
+        password: formValues.password,
+        token: this.token};
 
       this.accountService.changePassword(requestParams)
         .subscribe(()=> {
           this.errorMessage = '';
-          window.location.href='/login';
+          window.location.href='/restore-password';
         },
         (error)=> {
           this.errorMessage = error.error.message;

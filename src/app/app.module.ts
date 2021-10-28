@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
-import { angularMaterial } from './share/material/material.module';
+import { angularMaterial } from './share/angularMaterial/material';
 import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 
 @NgModule({
