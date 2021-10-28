@@ -100,8 +100,8 @@ export class RegistComponent implements OnInit {
             console.log(res, res.body);
             this.myForm.clearValidators();
             if (this.active_2fa) {
+              // add qr-image to local storage by 'qrCodeImage'- key
               localStorage.setItem('qrCodeImage', res.qrCodeImage);
-              this.router.navigate(['two-fa']);
               console.log(res.qrCodeImage);
             } else {
               this.router.navigate(['login']);

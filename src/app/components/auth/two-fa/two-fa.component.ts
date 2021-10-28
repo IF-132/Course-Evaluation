@@ -17,7 +17,7 @@ export class TwoFAComponent implements OnInit {
   public isDownloadApp = false;
   public showQrCodeStatus = true;
   public confirmCode = '';
-  
+
   constructor() {}
 
   public twoForm: FormGroup | any;
