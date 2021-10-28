@@ -10,7 +10,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-regist',
   templateUrl: './regist.component.html',
@@ -19,7 +18,6 @@ import { Router } from '@angular/router';
 export class RegistComponent implements OnInit {
   public hidePass = true;
   public hidePassConf = true;
-  public qrCodeImg = '';
 
   public myForm: FormGroup;
 
@@ -102,8 +100,9 @@ export class RegistComponent implements OnInit {
             console.log(res, res.body);
             this.myForm.clearValidators();
             if (this.active_2fa) {
-              this.qrCodeImg = res.body.qrCodeImage;
-              this.router.navigate(['app-two-fa']);
+              localStorage.setItem('qrCodeImage', res.qrCodeImage);
+              this.router.navigate(['two-fa']);
+              console.log(res.qrCodeImage);
             } else {
               this.router.navigate(['login']);
             }
@@ -115,6 +114,5 @@ export class RegistComponent implements OnInit {
           }
         );
     }
-  
   }
 }
