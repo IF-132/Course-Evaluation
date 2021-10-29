@@ -11,6 +11,7 @@ export class RestorePasswordComponent implements OnInit {
     isSubmited = false;
     public form: FormGroup | any;
     public errorMessage = '';
+    public isSent = false;
 
     constructor (private accountService: AccountService) { }
 
@@ -41,11 +42,16 @@ export class RestorePasswordComponent implements OnInit {
       },
       (error) => {
           this.errorMessage = error.error.message;
+          this.isSent = false;
       });
     }
 
     public backToResend(): void {
       this.isSubmited = false;
+    }
+
+    public matDialoClose(): void {
+      this.isSent = true;
     }
 }
   
