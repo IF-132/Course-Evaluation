@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { UPUpdatePasswordService } from './u-p-update-password.service';
+import { UpdateUserPassword } from './updatePasswordModel';
 
 @Component({
   selector: 'app-u-p-update-password',
   templateUrl: './u-p-update-password.component.html',
   styleUrls: ['./u-p-update-password.component.scss'],
+  providers: [UPUpdatePasswordService],
 })
 export class UPUpdatePasswordComponent implements OnInit {
   editUserPassword: FormGroup;
 
-  constructor() {
+  constructor(private upUpdatePasswordService: UPUpdatePasswordService) {
     this.editUserPassword = new FormGroup({
       oldPassword: new FormControl('', [
         Validators.required,
@@ -37,6 +45,10 @@ export class UPUpdatePasswordComponent implements OnInit {
   }
 
   // getting the form control elements
+  get oldPassword(): AbstractControl {
+    return this.editUserPassword.controls['oldPassword'];
+  }
+
   get newPassword(): AbstractControl {
     return this.editUserPassword.controls['newPassword'];
   }
@@ -51,11 +63,22 @@ export class UPUpdatePasswordComponent implements OnInit {
 
   //TODO: pass data to server
   editPasswordSubmission(): void {
-    let updatedUserPassword = {
-      "newPassword": this.editUserPassword.value.newPassword,
-      "oldPassword": this.editUserPassword.value.oldPassword
+    let updatedUserPassword: UpdateUserPassword = {
+      newPassword: this.editUserPassword.value.newPassword,
+      oldPassword: this.editUserPassword.value.oldPassword,
     };
-    console.log('Password is updated!');
-    console.log(updatedUserPassword);
+    this.upUpdatePasswordService
+      .patchUpdatedPassword(updatedUserPassword)
+      .subscribe(
+        (data: any) => console.log(data),
+        (error) => {
+          console.log(error);
+          this.oldPassword.setErrors({ badOldPassword: true });
+        }
+      );
+    this.editUserPassword.reset();
+    this.oldPassword.setErrors(null);
+    this.newPassword.setErrors(null);
+    this.confirmedPassword.setErrors(null);
   }
 }

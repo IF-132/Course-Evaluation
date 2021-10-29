@@ -1,35 +1,43 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { UPDataService } from './u-p-data.service';
+import { UserById } from './userByIdModel';
+import { getTokenRole } from '../token-data';
 
 @Component({
   selector: 'app-u-p-data',
   templateUrl: './u-p-data.component.html',
   styleUrls: ['./u-p-data.component.scss'],
+  providers: [UPDataService]
 })
 export class UPDataComponent implements OnInit {
+  //default user picture
   defaultUserPictureURL =
     '/assets/images/user-profile/default-user-picture.jpg';
 
-  @Input() userId: number;
-  @Input() userRole: string[] = [];
+  //data model to get from server
+  userById: UserById | undefined;
+
+  //role
+  userRole: [] | undefined;
 
   //TODO: get this links
   linkToDashboard = '';
   linkToMainPage = '';
 
-  constructor() {}
+  constructor(private upDataService: UPDataService) {}
 
   ngOnInit(): void {
-    console.log('u-p-data component is initialized! ');
+this.upDataService.getData().subscribe((data: any) =>
+      this.userById = new UserById(
+        data.firstName,
+        data.lastName,
+        data.email,
+        data.active2fa,
+        data.profilePicture
+      )
+    );
+    this.userRole = getTokenRole();
   }
-
-  //TODO: get User profile model by id like this
-  userData = {
-    firstName: 'Irene',
-    lastName: 'Katrych',
-    email: 'katrych1234@gmail.com',
-    active2fa: false,
-    profilePicture: ""// '/assets/images/user-profile/test-avatar.jpg',
-  };
 
   //TODO: make HTTPRequest to logout
   logout(): void {

@@ -7,8 +7,8 @@
       <img
         id="user-picture"
         [src]="
-          userData.profilePicture !== ''
-            ? userData.profilePicture
+          userById?.profilePicture !== ''
+            ? userById?.profilePicture
             : defaultUserPictureURL
         "
         alt="user-picture"
@@ -16,9 +16,9 @@
     </div>
     <div class="user-data">
       <mat-card-title
-        >{{ userData.firstName }} {{ userData.lastName }}</mat-card-title
+        >{{ userById?.firstName }} {{ userById?.lastName }}</mat-card-title
       >
-      <mat-card-subtitle>{{ userData.email }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ userById?.email }}</mat-card-subtitle>
       <mat-card-subtitle *ngFor="let role of userRole">
         {{
           role === "ROLE_ADMIN"
