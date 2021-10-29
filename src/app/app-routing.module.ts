@@ -14,7 +14,6 @@ const routes: Routes = [
       {path: "students", component: StudentsComponent},
     ]
   },
-
 ];
 
 @NgModule({

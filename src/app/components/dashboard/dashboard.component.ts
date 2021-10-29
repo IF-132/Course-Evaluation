@@ -11,9 +11,8 @@ import {
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
-
-  @ViewChild('d') d: ElementRef;
+export class DashboardComponent  {
+  @ViewChild('dash') dash: ElementRef;
   @ViewChild('students') s: ElementRef;
   @ViewChild('courses') courses: ElementRef;
   @ViewChild('nav') nav: ElementRef;
@@ -21,10 +20,6 @@ export class DashboardComponent implements OnInit {
   @ViewChild('burger') burger: ElementRef;
 
   constructor() {}
-
-  ngOnInit(): void {
-    console.log('Dashboard componennt is working');
-  }
 
   handleToggleClassActive(el: any): void {
     const collection = [...this.nav.nativeElement.children];
@@ -37,16 +32,16 @@ export class DashboardComponent implements OnInit {
   }
 
   handleToggleMenu() {
-    if(!this.asideMenu.nativeElement.classList.contains('active')){
+    if (!this.asideMenu.nativeElement.classList.contains('active')) {
       this.asideMenu.nativeElement.classList.add('active');
     } else {
-      this.asideMenu.nativeElement.classList.remove('active')
+      this.asideMenu.nativeElement.classList.remove('active');
     }
 
-    if(!this.burger.nativeElement.classList.contains('active')){
+    if (!this.burger.nativeElement.classList.contains('active')) {
       this.burger.nativeElement.classList.add('active');
     } else {
-      this.burger.nativeElement.classList.remove('active')
+      this.burger.nativeElement.classList.remove('active');
     }
   }
 }

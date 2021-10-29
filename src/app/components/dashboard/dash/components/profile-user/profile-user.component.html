@@ -17,7 +17,17 @@
   </div>
 
   <div [ngClass]="{'closed': !isOpen}" class="profile-user__settings closed">
-    <mat-nav-list>
+    <div class="profile-user__settings-user settings-user">
+      <div class="settings-user__ava">
+        <img src="/assets/img/dashboard/ava.png" alt="avatar">
+      </div>
+      <div class="settings-user__name">
+
+        <div class="settings-user__welcome">Welcome </div>
+        <div class="settings-user__firstname-user__lastname">{{user?.firstName}} {{user?.lastName}}</div>
+      </div>
+    </div>
+    <mat-nav-list class="mat-nav-list">
       <mat-list-item style="cursor: pointer; border-bottom: 1px solid silver;" >
          <mat-icon>home</mat-icon>
          <div class="mat-item"> Settings</div>
@@ -29,7 +39,7 @@
      </mat-list-item>
 
       <mat-list-item (click)="isOpen = !isOpen" style="cursor: pointer; border-bottom: 1px solid silver;">
-        <mat-icon style="color: red;">close</mat-icon>
+        <mat-icon style="color: rgb(226, 38, 38);">close</mat-icon>
         <div class="mat-item"> Close</div>
       </mat-list-item>
 

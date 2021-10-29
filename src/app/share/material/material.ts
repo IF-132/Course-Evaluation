@@ -9,5 +9,9 @@ export const angularMaterial = [
   MatFormFieldModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatIconModule
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatIconModule,
 ];

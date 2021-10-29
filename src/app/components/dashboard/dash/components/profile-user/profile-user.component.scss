@@ -37,9 +37,10 @@
   &__settings {
     position: absolute;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    //justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 210px;
     height: 300px;
     color: #4e555ce5;
     background-color: #e2e6f4;
@@ -52,13 +53,43 @@
   &__username-content {
     display: flex;
   }
-}
-.closed {
-  display: none;
-}
+  .settings-user {
+    display: flex;
+    margin-top: 7%;
+    margin-bottom: 12%;
+    width: 87%;
 
-.mat-item {
-  margin-left: 10px;
+    align-items: center;
+    &__ava {
+      margin-right: 5%;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #0e779a;
+      padding: 4% 4%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__name {
+      font-size: 1.4rem;
+    }
+  }
+  .closed {
+    display: none;
+  }
+
+  .mat-item {
+    margin-left: 10px;
+  }
+
+  .mat-nav-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 @media (max-width: 830px) {
