@@ -82,10 +82,6 @@
   background-color: white;
 }
 
-.active {
-  left: 0;
-}
-
 @media (max-width: 1210px) {
   .dashboard {
     &__aside-menu {
@@ -198,5 +194,9 @@
       top: 3%;
     }
    }
+
 }
 
+.active {
+  left: 0;
+}

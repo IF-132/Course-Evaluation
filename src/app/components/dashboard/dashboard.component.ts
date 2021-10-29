@@ -48,6 +48,5 @@ export class DashboardComponent implements OnInit {
     } else {
       this.burger.nativeElement.classList.remove('active')
     }
-
   }
 }

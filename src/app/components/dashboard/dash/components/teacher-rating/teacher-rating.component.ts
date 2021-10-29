@@ -15,6 +15,7 @@ export class TeacherRatingComponent implements OnInit {
   chartOption: EChartsOption = {
     title: {
           text: "Rating of teachers",
+
         },
            tooltip: {
       trigger: 'axis',

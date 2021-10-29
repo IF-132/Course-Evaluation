@@ -16,7 +16,7 @@ interface ParsedToken {
   providedIn: 'root'
 })
 export class ProfileUserService {
-  decodedToken: ParsedToken = decodeJwt("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXJ2ZS1jb3Vyc2VAcmFtYmxlci5ydSIsInJvbGUiOltdLCJpZCI6OSwiYXV0aGVudGljYXRlZCI6dHJ1ZSwiaWF0IjoxNjM1MzczMzAzLCJleHAiOjE2MzU0NTk3MDN9.-QYHbq40pRiPHxISK9c3haxpIY4wxniM9mZKrN4t3Mc");
+  decodedToken: ParsedToken = decodeJwt("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXJ2ZS1jb3Vyc2VAcmFtYmxlci5ydSIsInJvbGUiOltdLCJpZCI6OSwiYXV0aGVudGljYXRlZCI6dHJ1ZSwiaWF0IjoxNjM1NDkxODEyLCJleHAiOjE2MzU1NzgyMTJ9.3RTCN1wuf5Ho_F1biF2rnFUxVQNNYg6aXLkijj5Ve5Y");
 
   constructor(
     private http: HttpClient
@@ -26,7 +26,7 @@ export class ProfileUserService {
   getUser() {
     return this.http.get<User>(`https://courseevaluator-main.herokuapp.com/api/v1/users/${this.decodedToken.id}`, {
       headers: {
-        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXJ2ZS1jb3Vyc2VAcmFtYmxlci5ydSIsInJvbGUiOltdLCJpZCI6OSwiYXV0aGVudGljYXRlZCI6dHJ1ZSwiaWF0IjoxNjM1MzczMzAzLCJleHAiOjE2MzU0NTk3MDN9.-QYHbq40pRiPHxISK9c3haxpIY4wxniM9mZKrN4t3Mc'
+        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXJ2ZS1jb3Vyc2VAcmFtYmxlci5ydSIsInJvbGUiOltdLCJpZCI6OSwiYXV0aGVudGljYXRlZCI6dHJ1ZSwiaWF0IjoxNjM1NDkxODEyLCJleHAiOjE2MzU1NzgyMTJ9.3RTCN1wuf5Ho_F1biF2rnFUxVQNNYg6aXLkijj5Ve5Y'
       }
     })
   }

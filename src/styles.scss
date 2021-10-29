@@ -34,7 +34,6 @@ $Course-Evaluation-theme: mat.define-light-theme((
 @include mat.all-component-themes($Course-Evaluation-theme);
 
 @import "./scss/null.scss";
-@import  "./scss/colors.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap');/* You can add global styles to this file, and also import other style files */
 
