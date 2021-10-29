@@ -57,6 +57,10 @@
   display: none;
 }
 
+.mat-item {
+  margin-left: 10px;
+}
+
 @media (max-width: 830px) {
   .profile-user {
     flex-direction: column;
