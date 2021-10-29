@@ -1,7 +1,6 @@
 .profile-user {
   display: flex;
   align-items: center;
- // justify-content: space-between;
   width: inherit;
   &__ava {
     width: 40px;
@@ -38,7 +37,6 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
     align-items: center;
     width: 210px;
     height: 300px;

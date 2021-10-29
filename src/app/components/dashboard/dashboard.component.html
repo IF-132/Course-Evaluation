@@ -1,5 +1,4 @@
 <div class="dashboard">
-
   <div class="burger" (click)="handleToggleMenu()" #burger>
     <span></span>
   </div>
@@ -8,46 +7,44 @@
     <div class="dashboard__logo">
       <img src="/assets/img/dashboard/logo_serve.png" alt="logo">
     </div>
-
-    <div class="dashboard__aside-nav" #nav>
-      <div class="dashboard__dash aside-field field-active" #dash (click)="handleToggleClassActive(dash)"
-        routerLink="/dashboard">
-        <div class="aside-link">
-          <div class="aside-nav-img">
-            <img src="/assets/img/dashboard/dashboard.png" alt="dashboard">
+    <nav>
+      <ul class="dashboard__aside-nav" #nav>
+        <li class="dashboard__dash aside-field field-active" #dash (click)="handleToggleClassActive(dash)"
+          routerLink="/dashboard">
+          <div class="aside-link">
+            <div class="aside-nav-img">
+              <img src="/assets/img/dashboard/dashboard.png" alt="dashboard">
+            </div>
+            <div class="aside-nav-title">
+              Dashboard
+            </div>
           </div>
-          <div class="aside-nav-title">
-            Dashboard
+        </li>
+        <li class="dashboard__courses aside-field" #courses (click)="handleToggleClassActive(courses)"
+          routerLink="/dashboard/courses">
+          <div class="aside-link">
+            <div class="aside-nav-img">
+              <img src="/assets/img/dashboard/courses.png" alt="courses">
+            </div>
+            <div class="aside-nav-title">
+              Courses
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="dashboard__courses aside-field" #courses (click)="handleToggleClassActive(courses)"
-        routerLink="/dashboard/courses">
-        <div class="aside-link">
-          <div class="aside-nav-img">
-            <img src="/assets/img/dashboard/courses.png" alt="courses">
+        </li>
+        <li class="dashboard__students aside-field" #students (click)="handleToggleClassActive(students)"
+          routerLink="/dashboard/students">
+          <div class="aside-link">
+            <div class="aside-nav-img">
+              <img src="/assets/img/dashboard/student.png" alt="students">
+            </div>
+            <div class="aside-nav-title">
+              Students
+            </div>
           </div>
-          <div class="aside-nav-title">
-            Courses
-          </div>
-        </div>
-      </div>
-
-      <div class="dashboard__students aside-field" #students (click)="handleToggleClassActive(students)"
-        routerLink="/dashboard/students">
-        <div class="aside-link">
-          <div class="aside-nav-img">
-            <img src="/assets/img/dashboard/student.png" alt="student">
-          </div>
-          <div class="aside-nav-title">
-            Students
-          </div>
-        </div>
-      </div>
-
-    </div>
-    ∏ <div class="dashboard__aside-bottom-img">
+        </li>
+      </ul>
+    </nav>
+    <div class="dashboard__aside-bottom-img">
       <img src="/assets/img/dashboard/clipart3569292.png" alt="team">
     </div>
   </div>

@@ -8,8 +8,8 @@ import { Course } from './models';
 export class AvailableCoursesService {
 
   constructor(private http: HttpClient) {
-
   }
+
   getAvilableCourses() {
     return this.http.get<Course[]>('https://courseevaluator-main.herokuapp.com/api/v1/courses/', {
       headers: {
