@@ -8,7 +8,9 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-regist',
@@ -22,11 +24,14 @@ export class RegistComponent implements OnInit {
   public myForm: FormGroup;
 
   public formError: string = '';
+  public formSuccess: string = '';
 
   constructor(
     private fb: FormBuilder,
     private _http: HttpClient,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
+
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +76,10 @@ export class RegistComponent implements OnInit {
     return this.myForm.get('active_2fa') as FormArray;
   }
 
+  public openLogIn() {
+    this.dialog.open(LoginComponent)
+  }
+
   // Password match func
   // https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6
 
@@ -98,19 +107,21 @@ export class RegistComponent implements OnInit {
           (res) => {
             console.log('Sign up - successfull!');
             console.log(res, res.body);
-            this.myForm.clearValidators();
+            this.formSuccess = `Success! Check  ${res.email} to finish registration!`
             if (this.active_2fa) {
               // add qr-image to local storage by 'qrCodeImage'- key
               localStorage.setItem('qrCodeImage', res.qrCodeImage);
               console.log(res.qrCodeImage);
-            } else {
-              this.router.navigate(['login']);
             }
+            // show success message for 5 sec. and go to login page
+              setTimeout(() => {
+                this.myForm.reset();
+                this.router.navigate(['login']);
+            },7000)
           },
           (err) => {
             this.formError = err.error.message + '!';
-            console.log('Something went wrong!');
-            console.log(this.formError);
+            console.log(err.error.status, this.formError);
           }
         );
     }

@@ -1,10 +1,11 @@
 <div class="regist" #regist>
   <mat-card class="regist-card">
     <div class="card-header">
-      <h2 class="error">{{formError}}</h2>
+      <h2 class="error">{{ formError }}</h2>
+      <h2 class="success">{{ formSuccess }}</h2>
       <mat-card-title> Registration Form </mat-card-title>
-      <span>
-        <button  routerLink="/hello-page"><mat-icon style="cursor: pointer;">close</mat-icon></button>
+      <span mat-dialog-close>
+        <mat-icon style="cursor: pointer">close</mat-icon>
       </span>
     </div>
     <mat-card-content class="card-content">
@@ -124,22 +125,25 @@
           <mat-checkbox
             labelPosition="after"
             formControlName="active_2fa"
-            (indeterminate)=(false)
+            (indeterminate)="(false)"
           >
             2-Step Verification
           </mat-checkbox>
         </div>
 
-        <button class="btn" 
-        mat-raised-button 
-        color="primary"
-        [disabled]="myForm.invalid ? true : false"
-        >Registre</button>
+        <button
+          class="btn"
+          mat-raised-button
+          color="primary"
+          [disabled]="myForm.invalid ? true : false"
+        >
+          Registre
+        </button>
       </form>
       <div class="anotherType-login">
         <br />
         <p>
-          <a routerLink="/login">LOG IN</a>
+          <a class="btn" (click)="openLogIn()" mat-dialog-close>LOG IN</a>
         </p>
         <br />
       </div>

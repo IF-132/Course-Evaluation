@@ -1,5 +1,4 @@
 <div class="login-popup" [style.display]="popupStatus ? 'block' : 'none'">
-  <div id="popup"></div>
   <div class="login">
     <mat-card class="login-card">
       <div class="card-header">
@@ -70,7 +69,7 @@
         <div class="anotherType-login">
           <br />
           <p>
-            <a routerLink="/regist">SIGN UP</a>
+            <a (click)="openRegist()" mat-dialog-close >SIGN UP</a>
           </p>
           <br />
         </div>

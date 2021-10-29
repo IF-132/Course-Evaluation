@@ -7,7 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatGridListModule } from '@angular/material/grid-list'
-import { CodeInputModule } from 'angular-code-input';
+import { CodeInputModule } from 'angular-code-input'
+import { MatDialogModule } from '@angular/material/dialog'
 
 export const angularMaterial = [
   MatCardModule,
@@ -19,5 +20,6 @@ export const angularMaterial = [
   MatMenuModule,
   ReactiveFormsModule,
   MatCheckboxModule,
-  CodeInputModule
+  CodeInputModule,
+  MatDialogModule
 ]

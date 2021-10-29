@@ -34,12 +34,13 @@
       <a mat-menu-item>Logout</a>
     </mat-menu>
 
-    <a [hidden]="registered" href="login">
+    <a [hidden]="registered" (click)="openDialog()">
       <span class="iconify" data-icon="mdi:login"></span>
       Login</a
     >
   </nav>
 </header>
+
 
 <router-outlet></router-outlet>
 

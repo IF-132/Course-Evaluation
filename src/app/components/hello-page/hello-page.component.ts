@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistComponent } from '../auth/regist/regist.component';
 
 @Component({
   selector: 'app-hello-page',
@@ -11,5 +12,6 @@ export class HelloPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }
