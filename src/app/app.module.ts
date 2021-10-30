@@ -38,7 +38,7 @@ import { angularMaterial } from './share/angularMaterial/material';
     TwoFAComponent,
     InvalidEmailPasswComponent,
     DashboardComponent,
-    angularMaterial
+
   ],
   entryComponents: [InvalidEmailPasswComponent,
     RestorePasswordComponent,
@@ -49,6 +49,7 @@ import { angularMaterial } from './share/angularMaterial/material';
     AppRoutingModule,
     DashboardModule,
     BrowserAnimationsModule,
+    angularMaterial
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },

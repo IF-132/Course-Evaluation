@@ -10,8 +10,8 @@ import { TeacherRatingComponent } from './dash/components/teacher-rating/teacher
 import { NgxEchartsModule } from 'ngx-echarts';
 import { CoursesComponent } from './courses/courses.component';
 import { HttpClientModule } from '@angular/common/http';
-import { angularMaterial } from "../../share/angularMaterial/material";
 import { RouterModule } from '@angular/router';
+import { angularMaterial } from '../../share/angularMaterial/material';
 
 @NgModule({
   declarations: [
@@ -23,12 +23,14 @@ import { RouterModule } from '@angular/router';
     CourseComponent,
     TeacherRatingComponent,
     CoursesComponent,
-    angularMaterial
+
+
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
+    angularMaterial,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
