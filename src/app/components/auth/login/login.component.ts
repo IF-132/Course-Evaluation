@@ -7,6 +7,7 @@ import { InvalidEmailPasswComponent } from './errors/invalid-email-passw/invalid
 import { HttpErrorResponse } from '@angular/common/http';
 import { TwoFAComponent } from '../two-fa/two-fa.component';
 import { jwtDecodeUser } from 'src/app/share/models/jwtDecodeUser';
+import { RestorePasswordComponent } from '../restore-password/restore-password.component';
 
 @Component({
   selector: 'app-login',
@@ -32,6 +33,10 @@ export class LoginComponent implements OnInit {
     this.dialog.open(TwoFAComponent);
   }
   
+  public openRestorePassword(): void {
+    this.dialog.open(RestorePasswordComponent)
+  }
+
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('',[

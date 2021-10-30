@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 import { EmailExistComponent } from './error/email-exist/email-exist.component';
 
 @Component({
@@ -77,7 +78,7 @@ export class RegistComponent implements OnInit {
   }
 
   public openLogIn() {
-    // TODO: this.dialog.open(LoginComponent);
+    this.dialog.open(LoginComponent);
   }
 
   // Password match func

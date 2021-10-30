@@ -10,9 +10,10 @@ import { InterceptorService } from './share/loader/interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
+import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 import { HelloPageComponent } from './components/hello-page/hello-page.component';
 import { RegistComponent } from './components/auth/regist/regist.component';
-import { angularMaterial } from './share/material/material';
 import { EmailExistComponent } from './components/auth/regist/error/email-exist/email-exist.component';
 import { EmailNotConfirmedComponent } from './components/auth/regist/error/email-not-confirmed/email-not-confirmed.component';
 import { SuccessComponent } from './components/auth/regist/success/success.component';
@@ -24,6 +25,10 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
 @NgModule({
   declarations: [
     AppComponent,
+    RestorePasswordComponent,
+    ChangePasswordComponent,
+    RestorePasswordComponent,
+    ChangePasswordComponent,
     HelloPageComponent,
     RegistComponent,
     EmailExistComponent,
@@ -34,11 +39,13 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
     InvalidEmailPasswComponent,
     DashboardComponent,
   ],
-  entryComponents: [InvalidEmailPasswComponent],
+  entryComponents: [InvalidEmailPasswComponent,
+    RestorePasswordComponent,
+    ChangePasswordComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    angularMaterial,
     DashboardModule,
     BrowserAnimationsModule,
   ],
@@ -52,3 +59,4 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
     ReactiveFormsModule]
 })
 export class AppModule {}
+
