@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
+import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 import { HelloPageComponent } from './components/hello-page/hello-page.component';
 import { RegistComponent } from './components/auth/regist/regist.component';
 import { angularMaterial } from './share/material/material';
@@ -19,6 +21,10 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
 @NgModule({
   declarations: [
     AppComponent,
+    RestorePasswordComponent,
+    ChangePasswordComponent,
+    RestorePasswordComponent,
+    ChangePasswordComponent,
     HelloPageComponent,
     RegistComponent,
     EmailExistComponent,
@@ -28,7 +34,10 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
     TwoFAComponent,
     InvalidEmailPasswComponent,
   ],
-  entryComponents: [InvalidEmailPasswComponent],
+  entryComponents: [InvalidEmailPasswComponent,
+    RestorePasswordComponent,
+    ChangePasswordComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,3 +51,4 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
