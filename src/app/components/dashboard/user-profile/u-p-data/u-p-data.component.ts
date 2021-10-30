@@ -1,13 +1,14 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UPDataService } from './u-p-data.service';
 import { UserById } from './userByIdModel';
 import { getTokenRole } from '../token-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-u-p-data',
   templateUrl: './u-p-data.component.html',
   styleUrls: ['./u-p-data.component.scss'],
-  providers: [UPDataService]
+  providers: [UPDataService],
 })
 export class UPDataComponent implements OnInit {
   //default user picture
@@ -22,25 +23,33 @@ export class UPDataComponent implements OnInit {
 
   //TODO: get this links
   linkToDashboard = '';
-  linkToMainPage = '';
 
-  constructor(private upDataService: UPDataService) {}
+  constructor(private upDataService: UPDataService, private router: Router) {}
 
   ngOnInit(): void {
-this.upDataService.getData().subscribe((data: any) =>
-      this.userById = new UserById(
-        data.firstName,
-        data.lastName,
-        data.email,
-        data.active2fa,
-        data.profilePicture
-      )
-    );
+    this.upDataService
+      .getData()
+      .subscribe(
+        (data: any) =>
+          (this.userById = new UserById(
+            data.firstName,
+            data.lastName,
+            data.email,
+            data.active2fa,
+            data.profilePicture
+          ))
+      );
     this.userRole = getTokenRole();
   }
 
-  //TODO: make HTTPRequest to logout
+
+  //TODO: make rout to main page
   logout(): void {
-    console.log('logged out!');
+    this.upDataService.logOut().subscribe(
+      (data: any) => console.log(data),
+      (error) => console.log(error)
+    );
+    localStorage.clear();
+    this.router.navigate([]);
   }
 }

@@ -19,4 +19,12 @@ export class UPDataService {
   getData() {
     return this.http.get(this.url, { headers: this.headers });
   }
+
+  logOut() {
+    return this.http.post(
+      'https://courseevaluator-main.herokuapp.com/api/v1/auth/logout',
+      '',
+      { headers: this.headers }
+    );
+  }
 }

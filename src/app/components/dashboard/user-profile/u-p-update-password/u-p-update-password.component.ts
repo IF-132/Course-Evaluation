@@ -61,7 +61,7 @@ export class UPUpdatePasswordComponent implements OnInit {
     console.log('u-p-update-password component is initialized! ');
   }
 
-  //TODO: pass data to server
+  //passing data to server
   editPasswordSubmission(): void {
     let updatedUserPassword: UpdateUserPassword = {
       newPassword: this.editUserPassword.value.newPassword,
