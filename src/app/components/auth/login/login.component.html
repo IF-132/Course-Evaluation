@@ -1,9 +1,11 @@
-<div class="login-popup" [style.display]="popupStatus ? 'block' : 'none'">
+<div class="login-popup">
   <div class="login">
     <mat-card class="login-card">
       <div class="card-header">
+        <!-- <h2 class="error">{{ formError }}</h2>
+      <h2 class="success">{{ formSuccess }}</h2> -->
         <mat-card-title> Login </mat-card-title>
-        <span (click)="closePopup()">
+        <span mat-dialog-close>
           <mat-icon>close</mat-icon>
         </span>
       </div>

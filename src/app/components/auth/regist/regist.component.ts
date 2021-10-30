@@ -31,7 +31,6 @@ export class RegistComponent implements OnInit {
     private _http: HttpClient,
     private router: Router,
     private dialog: MatDialog
-
   ) {}
 
   ngOnInit(): void {
@@ -77,7 +76,7 @@ export class RegistComponent implements OnInit {
   }
 
   public openLogIn() {
-    this.dialog.open(LoginComponent)
+    this.dialog.open(LoginComponent);
   }
 
   // Password match func
@@ -92,9 +91,6 @@ export class RegistComponent implements OnInit {
   }
 
   onRegist() {
-    if (!this.myForm.valid) {
-      this.formError = 'Please compleate Registration Form!';
-    }
     const Data = { ...this.myForm.value };
     console.log(Data);
     if (this.myForm.valid) {
@@ -107,17 +103,16 @@ export class RegistComponent implements OnInit {
           (res) => {
             console.log('Sign up - successfull!');
             console.log(res, res.body);
-            this.formSuccess = `Success! Check  ${res.email} to finish registration!`
+            this.formSuccess = `Success! Check  ${res.email} to finish registration!`;
             if (this.active_2fa) {
               // add qr-image to local storage by 'qrCodeImage'- key
               localStorage.setItem('qrCodeImage', res.qrCodeImage);
               console.log(res.qrCodeImage);
             }
-            // show success message for 5 sec. and go to login page
-              setTimeout(() => {
-                this.myForm.reset();
-                this.router.navigate(['login']);
-            },7000)
+            // show success message for 7sec. and go to login page
+            setTimeout(() => {
+              this.myForm.reset();
+            }, 7000);
           },
           (err) => {
             this.formError = err.error.message + '!';

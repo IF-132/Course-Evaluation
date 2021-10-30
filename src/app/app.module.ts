@@ -10,6 +10,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { angularMaterial } from './share/material/material';
 import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorComponent } from './components/auth/regist/error/error.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegistComponent,
     LoginComponent,
     TwoFAComponent,
+    ErrorComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

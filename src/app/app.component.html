@@ -25,16 +25,16 @@
     </mat-menu>
 
     <a *ngIf="registered" [matMenuTriggerFor]="user">
-      <span class="iconify" data-icon="mdi:account-circle"></span> User
+      <span class="iconify" data-icon="mdi:account-circle"></span> {{ userName }}
     </a>
     <mat-menu #user="matMenu" yPosition="below">
       <a mat-menu-item>Edit profile</a>
       <a mat-menu-item>Edit Password</a>
       <a mat-menu-item>Passed Courses</a>
-      <a mat-menu-item>Logout</a>
+      <a mat-menu-item (click)="logOut()">Logout</a>
     </mat-menu>
 
-    <a [hidden]="registered" (click)="openDialog()">
+    <a *ngIf="!registered" (click)="openLogin()">
       <span class="iconify" data-icon="mdi:login"></span>
       Login</a
     >
@@ -58,7 +58,7 @@
 
   <div class="list">
     <span>User</span>
-    <a href="regist" *ngIf="!registered">Registration</a>
+    <a (click)="openRegist()" *ngIf="!registered">Registration</a>
     <a href="" *ngIf="registered">Edit profile</a>
     <a href="" *ngIf="registered">Edit Password</a>
     <a href="" *ngIf="registered">Passed Courses</a>
