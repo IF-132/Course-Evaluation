@@ -25,7 +25,8 @@
     </mat-menu>
 
     <a *ngIf="registered" [matMenuTriggerFor]="user">
-      <span class="iconify" data-icon="mdi:account-circle"></span> {{ userName }}
+      <span class="iconify" data-icon="mdi:account-circle"></span>
+      {{ userName }}
     </a>
     <mat-menu #user="matMenu" yPosition="below">
       <a mat-menu-item>Edit profile</a>
@@ -40,7 +41,6 @@
     >
   </nav>
 </header>
-
 
 <router-outlet></router-outlet>
 
@@ -92,4 +92,6 @@
     <a href="mailto:jdoe@softserveinc.com">Напишіть нам</a>
   </div>
 </footer>
-<p style="text-align: center; margin-top: 20px; font-size: 13px;">© Copyright 2021 SoftServe</p>
+<p style="text-align: center; margin-top: 20px; font-size: 13px">
+  © Copyright 2021 SoftServe
+</p>
