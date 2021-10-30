@@ -12,6 +12,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { angularMaterial } from '../../share/angularMaterial/material';
+import { CourseFormActionComponent } from './courses/course-form-action/course-form-action';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,14 @@ import { angularMaterial } from '../../share/angularMaterial/material';
     CourseComponent,
     TeacherRatingComponent,
     CoursesComponent,
-
-
-  ],
+    CourseFormActionComponent
+   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
     angularMaterial,
+    FormsModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

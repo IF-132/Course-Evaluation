@@ -1,1 +1,131 @@
-<p>courses works!</p>
+<div *ngIf="this.Error" class="error-block">
+  <mat-icon class="error-icon">error</mat-icon>
+  <div class="error-text">
+    <span>Error {{ Error.error.status }}</span>
+    <span>{{ Error.error.message }}</span>
+  </div>
+</div>
+
+<div
+  *ngIf="courses"
+  class="courses"
+  [ngClass]="{ blured: isEditOpen || isCreateOpen }"
+>
+  <div class="courses-title" #toUpdate>
+    <div class="title">
+      {{ currentlySelectedCourses }} courses ({{ courses.length }})
+    </div>
+    <div class="courses-action-container">
+      <div class="shadowed toggle-courses">
+        <span>available courses</span>
+        <mat-slide-toggle
+          [(ngModel)]="toggleAvailableCourses"
+          (click)="onSlideChange()"
+          class="slide-toggle"
+          color="primary"
+        >
+        </mat-slide-toggle>
+        <span>all courses</span>
+      </div>
+      <button
+        *ngIf="
+          currentUser.roles.includes('ROLE_ADMIN') ||
+          currentUser.roles.includes('ROLE_TEACHER')
+        "
+        class="btn create-course"
+        (click)="openCreateForm(courseForCreate, 'create')"
+      >
+        <mat-icon>add</mat-icon> Add Course
+      </button>
+    </div>
+  </div>
+  <mat-grid-list
+    class="courses-cards"
+    [cols]="colsBreackpoint"
+    rowHeight="420px"
+    gutterSize="10px"
+    (window:resize)="onResize($event)"
+  >
+    <mat-grid-tile
+      class="grid-item"
+      *ngFor="let course of courses"
+      [ngClass]="{ hovered: course.hover }"
+    >
+      <mat-card
+        class="shadowed card"
+        (mouseenter)="course.hover = true"
+        (mouseleave)="course.hover = false"
+      >
+        <div class="shadowed background-card">
+          <mat-card-title class="course-title"
+            >{{
+              course.courseName.length > 30
+                ? (course.courseName | slice: 0:30) + "..."
+                : course.courseName
+            }}
+          </mat-card-title>
+          <span class="course-teacher" *ngIf="course.hover"
+            >by {{ course.firstName }} {{ course.lastName }}</span
+          >
+        </div>
+        <mat-card-subtitle class="course-duration">
+          <mat-icon class="calendar-icon">date_range</mat-icon
+          >{{ course.startDate | date: "longDate" }} -
+          {{ course.endDate | date: "longDate" }}
+        </mat-card-subtitle>
+        <mat-card-content class="description">{{
+          course.description.length > 130
+            ? (course.description | slice: 0:130) + "..."
+            : course.description
+        }}</mat-card-content>
+
+        <div class="buttons">
+          <div
+            *ngIf="
+              currentUser.roles.includes('ROLE_ADMIN') ||
+              (currentUser.roles.includes('ROLE_TEACHER') &&
+                currentUser.id === course.teacherId)
+            "
+            class="remove-button icon-button"
+          >
+            <mat-icon (click)="delete(course.id)" color="error"
+              >delete_forever</mat-icon
+            >
+          </div>
+          <div
+            *ngIf="
+              currentUser.roles.includes('ROLE_ADMIN') ||
+              (currentUser.roles.includes('ROLE_TEACHER') &&
+                currentUser.id === course.teacherId)
+            "
+            (click)="openCreateForm(course, 'update'); scrollTo(toUpdate)"
+            class="edit-button icon-button"
+          >
+            <mat-icon color="amber">edit</mat-icon>
+          </div>
+        </div>
+        <button class="shadowed see-more-button">Show More</button>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<app-update-course
+  class="shadowed"
+  [title]="'Edit'"
+  *ngIf="isEditOpen"
+  [teachers]="teachers"
+  [course]="courseForUpdate"
+  (courseForm)="updateCourse(courseForUpdate)"
+  (isFormOpen)="closeForm($event)"
+></app-update-course>
+
+<app-update-course
+  class="shadowed"
+  [title]="'Create'"
+  *ngIf="isCreateOpen"
+  [teachers]="teachers"
+  [course]="courseForCreate"
+  (courseForm)="createCourse(courseForCreate)"
+  (isFormOpen)="closeForm($event)"
+></app-update-course>

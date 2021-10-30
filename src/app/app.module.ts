@@ -9,6 +9,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './share/loader/interceptor.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CoursesComponent } from './components/dashboard/courses/courses.component';
+import { CourseFormActionComponent } from './components/dashboard/courses/course-form-action/course-form-action';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { UPDataComponent } from './components/dashboard/user-profile/u-p-data/u-p-data.component';
+import { UPUpdateNameComponent } from './components/dashboard/user-profile/u-p-update-name/u-p-update-name.component';
+import { UPUpdatePasswordComponent } from './components/dashboard/user-profile/u-p-update-password/u-p-update-password.component';
+import { UPUpdatePictureComponent } from './components/dashboard/user-profile/u-p-update-picture/u-p-update-picture.component';
 
 import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
 import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
@@ -20,13 +27,18 @@ import { SuccessComponent } from './components/auth/regist/success/success.compo
 import { LoginComponent } from './components/auth/login/login.component';
 import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 import { InvalidEmailPasswComponent } from './components/auth/login/errors/invalid-email-passw/invalid-email-passw.component';
-import { angularMaterial } from './share/angularMaterial/material';
+
+import { angularMaterial, matProvider } from './share/angularMaterial/material';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RestorePasswordComponent,
-    ChangePasswordComponent,
+    UserProfileComponent,
+    UPDataComponent,
+    UPUpdateNameComponent,
+    UPUpdatePasswordComponent,
+    UPUpdatePictureComponent,
     RestorePasswordComponent,
     ChangePasswordComponent,
     HelloPageComponent,
@@ -37,28 +49,37 @@ import { angularMaterial } from './share/angularMaterial/material';
     LoginComponent,
     TwoFAComponent,
     InvalidEmailPasswComponent,
-    DashboardComponent,
 
+    DashboardComponent,
+ //   CoursesComponent,
+ //   CourseFormActionComponent,
   ],
-  entryComponents: [InvalidEmailPasswComponent,
+  entryComponents: [
+    InvalidEmailPasswComponent,
     RestorePasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
     BrowserAnimationsModule,
-    angularMaterial
+    angularMaterial,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    matProvider
   ],
   bootstrap: [AppComponent, BrowserAnimationsModule,
-    HttpClientModule,
+    AppComponent
 
-    FormsModule,
-    ReactiveFormsModule]
+  ],
+
+
 })
 export class AppModule {}
-
