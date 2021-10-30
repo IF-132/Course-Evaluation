@@ -1,0 +1,117 @@
+.login {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+
+    .login-card {
+        width: 25%;
+        margin: auto;
+        
+
+        .card-header {
+
+            mat-card-title {
+                text-align: center;
+                margin: 4% 0 10% 0;
+            }
+
+            span {
+                position: absolute;
+                top: 2%;
+                right: 2%;
+                cursor: pointer;
+            }
+        }
+
+        .card-content {
+
+            form {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+                input {
+                    border: none;
+                }
+
+                mat-form-field{
+                    margin: 0 auto 4% auto;
+                    width: 80%;
+                    ::ng-deep .mat-form-field-outline {
+                        background-color: #F6F8FA;
+                        
+                    }
+                    ::ng-deep .mat-form-field-underline {
+                        display: none;
+                    }
+                }          
+
+                .submit-btn {
+                    width: 80%;
+                    margin: 5% auto 4% auto;
+                    border-radius: 40px;
+                    padding: 2%;
+                    background-color: #1295C0;
+                    box-shadow: 0px 4px 4px 0px #00000040;
+                    font-family: Montserrat;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    text-align: center;
+
+                }
+
+                .submit-btn:hover:enabled {
+                    background-color: #0e5e79;
+                }
+
+                .forgot-password {
+                    width: 80%;
+                    margin: 0 auto;
+                    padding: 0;
+                    color: #1295C0;
+                    cursor: pointer;
+                    font-size: 11px;
+                }
+
+            }
+
+            .redirect-reg {
+
+
+                p {
+                    margin: 10% auto 15% auto;
+                    width: 80%;                    
+                    display: flex;
+                    flex-direction: row;
+                    font-family: Montserrat;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    letter-spacing: 0em;
+                    color: #3C4852;
+                    cursor: pointer;
+                  }
+                p:before, p:after{
+                content: "";
+                flex: 1 1;
+                border-bottom: 2px solid #E0DEDE;
+                margin: auto;
+                }
+                p:before {
+                margin-right: 14px
+                }
+                p:after {
+                margin-left: 14px
+                }
+
+            }
+        }
+    }
+}

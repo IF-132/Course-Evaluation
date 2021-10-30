@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../../../services/account.service';
 import { MatDialog } from '@angular/material/dialog';
-// TODO import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-restore-password',
@@ -57,6 +57,6 @@ export class RestorePasswordComponent implements OnInit {
   }
 
   public openLogIn() {
-    // TODO this.dialog.open(LoginComponent)
+    this.dialog.open(LoginComponent)
   }
 }

@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
 import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
-import { AppComponent } from './app.component';
+
 const routes: Routes = [
-  { path: '', component: AppComponent},
-  { path: 'restore-password', component: RestorePasswordComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
+  { path: '', component: HelloPageComponent },
+  { path: 'change-password', component: ChangePasswordComponent }
 
 ];
+import { HelloPageComponent } from './components/hello-page/hello-page.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -6,8 +6,23 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { CodeInputModule } from 'angular-code-input';
 
 export const angularMaterial = [
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatMenuModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    CodeInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -16,4 +31,5 @@ export const angularMaterial = [
     MatIconModule,
     HttpClientModule,
     MatDialogModule
+    
 ]
