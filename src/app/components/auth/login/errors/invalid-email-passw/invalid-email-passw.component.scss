@@ -1,0 +1,19 @@
+::ng-deep .mat-dialog-container {
+    padding-top: 0;
+}
+
+mat-dialog-content {
+    position: relative;
+    h3 {
+        padding-top: 10%;
+    }
+    span {
+        position: absolute;
+        top: 4%;
+        right: 2%;
+        cursor: pointer;
+    }
+}
+
+
+

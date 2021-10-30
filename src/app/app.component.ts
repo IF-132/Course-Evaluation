@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import { RegistComponent } from './components/auth/regist/regist.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { RegistComponent } from './components/auth/regist/regist.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'Course-Evaluation';
+  public title = 'Course-Evaluation';
 
   // TODO:  atribute "show" must be 'false' for unregistered user!
   public registered: boolean;
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   constructor(private dialog: MatDialog, private router: Router) {}
 
   public openLogin(): void {
-    //TODO: this.dialog.open(LoginComponent);
+    this.dialog.open(LoginComponent);
   }
   public openRegist(): void {
     this.dialog.open(RegistComponent);
