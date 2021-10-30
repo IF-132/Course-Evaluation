@@ -6,8 +6,8 @@ import {
   EventEmitter,
   DoCheck,
 } from '@angular/core';
+import { ITeacher } from 'src/app/components/teachers/teachers.service';
 
-import { ITeacher } from '../../teachers/teachers.service';
 import { ICourse } from '../courses.service';
 
 @Component({

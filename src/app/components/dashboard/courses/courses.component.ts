@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ITeacher, TeachersService } from '../teachers/teachers.service';
+import { ITeacher, TeachersService } from '../../teachers/teachers.service';
 import { CoursesService, ICourse } from './courses.service';
 
 import { Subscription } from 'rxjs';

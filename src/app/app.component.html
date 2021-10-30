@@ -1,4 +1,4 @@
-<header>
+<header *ngIf="!registered">
   <div class="logo">
     <a href="">
       <img src="../../assets/Logo.svg" alt="softserve logo" />
@@ -44,7 +44,7 @@
 
 <router-outlet></router-outlet>
 
-<footer>
+<footer *ngIf="!registered">
   <!--  -->
 
   <div *ngIf="registered" class="list">
