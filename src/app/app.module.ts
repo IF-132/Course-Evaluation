@@ -20,7 +20,7 @@ import { SuccessComponent } from './components/auth/regist/success/success.compo
 import { LoginComponent } from './components/auth/login/login.component';
 import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 import { InvalidEmailPasswComponent } from './components/auth/login/errors/invalid-email-passw/invalid-email-passw.component';
-
+import { angularMaterial } from './share/angularMaterial/material';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
     TwoFAComponent,
     InvalidEmailPasswComponent,
     DashboardComponent,
+    angularMaterial
   ],
   entryComponents: [InvalidEmailPasswComponent,
     RestorePasswordComponent,
