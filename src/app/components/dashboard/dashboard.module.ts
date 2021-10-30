@@ -14,6 +14,8 @@ import { RouterModule } from '@angular/router';
 import { angularMaterial } from '../../share/angularMaterial/material';
 import { CourseFormActionComponent } from './courses/course-form-action/course-form-action';
 import { FormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component';
+import { ChatModule } from './chat/chat.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     CourseComponent,
     TeacherRatingComponent,
     CoursesComponent,
-    CourseFormActionComponent
+    CourseFormActionComponent,
+    //ChatComponent
    ],
   imports: [
     CommonModule,
@@ -33,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     angularMaterial,
     FormsModule,
+    ChatModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

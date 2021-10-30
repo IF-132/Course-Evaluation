@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,8 @@ import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 import { InvalidEmailPasswComponent } from './components/auth/login/errors/invalid-email-passw/invalid-email-passw.component';
 
 import { angularMaterial, matProvider } from './share/angularMaterial/material';
+import { CommonModule } from '@angular/common';
+// import { AdminChatComponent } from './chat/admin-chat/admin-chat.component';
 
 
 @NgModule({
@@ -49,10 +52,12 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
     LoginComponent,
     TwoFAComponent,
     InvalidEmailPasswComponent,
-
     DashboardComponent,
  //   CoursesComponent,
  //   CourseFormActionComponent,
+   // CoursesComponent,
+    //CourseFormActionComponent,
+    // AdminChatComponent,
   ],
   entryComponents: [
     InvalidEmailPasswComponent,
@@ -69,7 +74,13 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    // ChatModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    angularMaterial,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
@@ -82,4 +93,4 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
 
 
 })
-export class AppModule {}
+export class AppModule { }

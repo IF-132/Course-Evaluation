@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoursesComponent } from './components/dashboard/courses/courses.component';
@@ -7,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashComponent } from './components/dashboard/dash/dash.component';
 import { StudentsComponent } from './components/dashboard/students/students.component';
 import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { AdminChatComponent } from './components/dashboard/chat/admin-chat/admin-chat.component';
 
 const routes: Routes = [
   {
@@ -19,16 +21,17 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', component: DashComponent },
-      //{ path: '', component: AdmiChatComponent },
+      { path: 'chat', component: AdminChatComponent },
       { path: 'courses', component: CoursesComponent },
       { path: 'students', component: StudentsComponent },
       { path: 'user-profile', component: UserProfileComponent },
     ],
   },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
