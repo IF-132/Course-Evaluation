@@ -13,12 +13,12 @@ export class AccountService {
 
   constructor(private http: HttpClient) {}
 
-  public restorePassword(email: string): Observable<any> {
+  public restorePassword(email: string): Observable<string> {
     email = email.trim();
     const params = new HttpParams()
       .set('email', email);
 
-    return this.http.get(`${baseUrl}/auth/restorePassword`, {params});
+    return this.http.get<string>(`${baseUrl}/auth/restorePassword`, {params});
   }
 
   public changePassword(body: PasswordRestoreDto) {

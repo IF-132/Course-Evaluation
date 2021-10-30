@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from '../../../services/account.service';
 import {ActivatedRoute} from "@angular/router";
 import { PasswordRestoreDto } from '../../../share/models/PasswordRestoreDto';
 

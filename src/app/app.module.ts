@@ -14,6 +14,10 @@ import { ChangePasswordComponent } from './components/auth/change-password/chang
     RestorePasswordComponent,
     ChangePasswordComponent
   ],
+  entryComponents: [
+    RestorePasswordComponent,
+    ChangePasswordComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
