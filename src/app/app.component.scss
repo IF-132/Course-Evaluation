@@ -1,2 +1,153 @@
 
 
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2em;
+  & > .logo {
+    width: 90px;
+    margin: auto 0;
+    line-height: 50px;
+  }
+
+  & > nav {
+    list-style-type: none;
+    display: flex;
+    color: #211d4d;
+    font-weight: 500;
+
+     a {
+      margin-left: 2rem;
+      align-self: baseline;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #211d4d;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: padding-bottom 0.25s ease-in-out;
+    }
+     a:hover {
+      border-bottom: 2px solid #1295c0;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+footer {
+  width: 90%;
+  margin: 3em auto;
+  line-height: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+
+      .list{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+      }
+
+      span {
+        font-weight: 700;
+        color: rgb(94,	58,	157)	;
+        margin-bottom: 1em;
+      }
+      a {
+        align-self: baseline;
+        cursor: pointer;
+        font-size: 1em;
+        color: #211d4d;
+        transition: color 0.25s ease-in-out;
+        text-decoration: none;
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+      a:hover {
+        color: #1295c0;
+
+      }
+}
+
+@media screen and (max-width: 770px) {
+  header {
+    padding-top: 1.5em;
+
+    & > .logo {
+      width: 50px;
+      margin: auto 0;
+      line-height: 20px;
+    }
+    & > nav > ul {
+      & > li {
+        margin-left: 1rem;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  footer{
+    font-size: 1em;
+    span{
+      margin-bottom: 5px;
+    }
+    a{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    & > .logo {
+      width: 50px;
+      margin: auto 0;
+      line-height: 10px;
+    }
+    & > nav {
+      & > a {
+        margin-left: 1rem;
+        font-size: 0.8em;
+      }
+    }
+  }
+  footer{
+    font-size: 0.9em;
+
+    span{
+      margin-bottom: 10px;
+    }
+
+    a{
+      margin-bottom: 10px;
+      line-height: 7px;
+
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  header {
+    & > .logo {
+      width: 50px;
+      margin: auto 0;
+      line-height: 20px;
+    }
+    & > nav {
+      & > a {
+        margin-left: 0.55rem;
+        font-size: 0.7em;
+      }
+    }
+  }
+  footer{
+    font-size: 0.7em;
+
+    a{
+      margin-bottom: 10px;
+      line-height: 5px;
+    }
+  }
+}
