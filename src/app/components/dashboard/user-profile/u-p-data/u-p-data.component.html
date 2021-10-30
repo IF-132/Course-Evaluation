@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- User info card -->
+<mat-card class="user-info">
+  <div class="pic-and-name">
+    <div class="user-image">
+      <img
+        id="user-picture"
+        [src]="
+          userById?.profilePicture !== ''
+            ? userById?.profilePicture
+            : defaultUserPictureURL
+        "
+        alt="user-picture"
+      />
+    </div>
+    <div class="user-data">
+      <mat-card-title
+        >{{ userById?.firstName }} {{ userById?.lastName }}</mat-card-title
+      >
+      <mat-card-subtitle>{{ userById?.email }}</mat-card-subtitle>
+      <mat-card-subtitle *ngFor="let role of userRole">
+        {{
+          role === "ROLE_ADMIN"
+            ? "Admin"
+            : role === "ROLE_STUDENT"
+            ? "Student"
+            : role === "ROLE_TEACHER"
+            ? "Teacher"
+            : "User"
+        }}</mat-card-subtitle
+      >
+    </div>
+  </div>
+
+  <!-- Side Menu -->
+  <div class="side-nav">
+    <ul>
+      <li>
+        <a class="side-nav-link" [routerLink]="linkToDashboard"
+          ><mat-icon mat-list-icon class="side-nav">dashboard</mat-icon>
+          <p>Dashboard</p></a
+        >
+      </li>
+      <li>
+        <a
+          class="side-nav-link"
+          (click)="logout()"
+          ><mat-icon mat-list-icon>logout</mat-icon>
+          <p>Logout</p></a
+        >
+      </li>
+    </ul>
+  </div>
+</mat-card>

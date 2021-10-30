@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- Edit user data card -->
+<mat-card>
+  <form
+    class="edit-user-data"
+    [formGroup]="editUserData"
+    (ngSubmit)="editDataSubmission()"
+  >
+    <mat-card-title>Edit user data</mat-card-title>
+    <div class="user-data-form-items">
+      <div class="user-data-input">
+        <mat-form-field appearance="fill">
+          <mat-label>First name*</mat-label>
+          <input
+            matInput
+            type="text"
+            id="user-name"
+            formControlName="firstName"
+          />
+          <mat-error *ngIf="editUserData.controls['firstName'].invalid">
+            Please enter a valid first name
+          </mat-error>
+          <!-- <mat-error *ngIf="editUserData.controls['firstName'].touched">
+              First name is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Last name*</mat-label>
+          <input
+            matInput
+            type="text"
+            id="user-last-name"
+            formControlName="lastName"
+          />
+          <mat-error *ngIf="editUserData.controls['lastName'].invalid">
+            Please enter a valid first name
+          </mat-error>
+          <!-- <mat-error *ngIf="editUserData.controls['lastName'].touched">
+              First name is <strong>required</strong>
+            </mat-error> -->
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!editUserData.valid"
+      >
+        Update data
+      </button>
+    </div>
+  </form>
+</mat-card>
+<mat-divider></mat-divider>

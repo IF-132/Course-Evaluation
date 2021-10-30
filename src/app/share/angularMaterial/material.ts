@@ -15,7 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import {MatDividerModule} from '@angular/material/divider';
 import {
   MatMomentDateModule,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
@@ -47,8 +47,9 @@ export const angularMaterial = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatMomentDateModule,
-];
+  MatDividerModule
+]
 
 export const matProvider = [
   { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
-];
+]

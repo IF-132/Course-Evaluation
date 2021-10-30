@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,6 +9,11 @@ import { CourseFormActionComponent } from './components/dashboard/courses/course
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { UPDataComponent } from './components/dashboard/user-profile/u-p-data/u-p-data.component';
+import { UPUpdateNameComponent } from './components/dashboard/user-profile/u-p-update-name/u-p-update-name.component';
+import { UPUpdatePasswordComponent } from './components/dashboard/user-profile/u-p-update-password/u-p-update-password.component';
+import { UPUpdatePictureComponent } from './components/dashboard/user-profile/u-p-update-picture/u-p-update-picture.component';
 import { RestorePasswordComponent } from './components/auth/restore-password/restore-password.component';
 import { ChangePasswordComponent } from './components/auth/change-password/change-password.component';
 import { HelloPageComponent } from './components/hello-page/hello-page.component';
@@ -23,8 +29,11 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
 @NgModule({
   declarations: [
     AppComponent,
-    RestorePasswordComponent,
-    ChangePasswordComponent,
+    UserProfileComponent,
+    UPDataComponent,
+    UPUpdateNameComponent,
+    UPUpdatePasswordComponent,
+    UPUpdatePictureComponent,
     RestorePasswordComponent,
     ChangePasswordComponent,
     HelloPageComponent,
@@ -47,10 +56,11 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    angularMaterial,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    angularMaterial,
+    ReactiveFormsModule
   ],
   providers: [matProvider],
   bootstrap: [AppComponent],
