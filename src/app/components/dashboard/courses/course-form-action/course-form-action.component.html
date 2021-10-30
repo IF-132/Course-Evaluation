@@ -1,0 +1,89 @@
+<div class="shadowed #update course-form flexed just-cntr flx-dir-col">
+  <h2 class="course-form-title">{{ title }} course</h2>
+  <form
+    (ngSubmit)="onSubmit()"
+    #f="ngForm"
+    class="course-formfields-container flexed flx-dir-col just-cntr"
+  >
+    <mat-form-field appearance="fill">
+      <mat-label>Course Name</mat-label>
+      <input
+        required
+        matInput
+        type="text"
+        [(ngModel)]="course.courseName"
+        name="courseName"
+      />
+    </mat-form-field>
+    <div class="course-form-dates flexed just-spc-btw">
+      <mat-form-field class="datepicker" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input
+          required
+          matInput
+          [(ngModel)]="course.startDate"
+          [matDatepicker]="startDate_picker"
+          name="startDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startDate_picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startDate_picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="datepicker" appearance="fill">
+        <mat-label>Choose a end date</mat-label>
+        <input
+          required
+          [(ngModel)]="course.endDate"
+          [min]="minDate"
+          matInput
+          [matDatepicker]="endDate_picker"
+          name="endDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endDate_picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #endDate_picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="course-form-textarea" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea
+        required
+        matInput
+        [(ngModel)]="course.description"
+        name="description"
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Select teacher</mat-label>
+      <mat-select [(ngModel)]="course.teacherId" name="teacher" required>
+        <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
+          {{ teacher.firstName }} {{ teacher.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p *ngIf="f.invalid">Every field is required, please fill them</p>
+    <div class="course-form-buttons flexed just-spc-even">
+      <button
+        type="button"
+        class="edit-button cancel-edit"
+        (click)="closeForm()"
+      >
+        Cancel
+      </button>
+      <button
+        [ngClass]="{ disabled: f.invalid }"
+        [disabled]="f.invalid"
+        type="button"
+        class="edit-button confirm-edit"
+        (click)="onSubmit()"
+      >
+        Confirm
+      </button>
+    </div>
+  </form>
+</div>

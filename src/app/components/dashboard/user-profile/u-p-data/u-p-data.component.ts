@@ -12,21 +12,21 @@ import { Router } from '@angular/router';
 })
 export class UPDataComponent implements OnInit {
   //default user picture
-  defaultUserPictureURL =
+  public defaultUserPictureURL =
     '/assets/images/user-profile/default-user-picture.jpg';
 
   //data model to get from server
-  userById: UserById | undefined;
+  public userById: UserById | undefined;
 
   //role
-  userRole: [] | undefined;
+  public userRole: [] | undefined;
 
   //TODO: get this links
-  linkToDashboard = '/dashboard';
+  public linkToDashboard = '/dashboard';
 
   constructor(private upDataService: UPDataService, private router: Router) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.upDataService
       .getData()
       .subscribe(
@@ -44,12 +44,12 @@ export class UPDataComponent implements OnInit {
 
 
   //TODO: make rout to main page
-  logout(): void {
+  public logout(): void {
     this.upDataService.logOut().subscribe(
       (data: any) => console.log(data),
       (error) => console.log(error)
     );
     localStorage.clear();
-    this.router.navigate(['hello-page']);
+    this.router.navigate(['/hello-page']);
   }
 }

@@ -1,3 +1,97 @@
-<!DOCTYPE html>
+<header *ngIf="!registered">
+  <div class="logo">
+    <a href="">
+      <img src="../../assets/Logo.svg" alt="softserve logo" />
+    </a>
+  </div>
+  <nav>
+    <a [matMenuTriggerFor]="courses">Courses</a>
+    <mat-menu #courses="matMenu" yPosition="below">
+      <a mat-menu-item>Java</a>
+      <a mat-menu-item>C++</a>
+      <a mat-menu-item>Ruby</a>
+      <a mat-menu-item>JavaScript</a>
+      <a mat-menu-item>Node.js</a>
+      <a mat-menu-item>Python</a>
+    </mat-menu>
 
-<app-user-profile style="height: 100%;"></app-user-profile>
+    <!-- atribute "show" must be 'true' in app.component for unregistered user! -->
+
+    <a *ngIf="registered" [matMenuTriggerFor]="dashboard">Dashboard</a>
+    <mat-menu #dashboard="matMenu" yPosition="below">
+      <a mat-menu-item>Groups</a>
+      <a mat-menu-item>Teachers</a>
+      <a mat-menu-item>Students</a>
+    </mat-menu>
+
+    <a *ngIf="registered" [matMenuTriggerFor]="user">
+      <span class="iconify" data-icon="mdi:account-circle"></span>
+      {{ userName }}
+    </a>
+    <mat-menu #user="matMenu" yPosition="below">
+      <a mat-menu-item>Edit profile</a>
+      <a mat-menu-item>Edit Password</a>
+      <a mat-menu-item>Passed Courses</a>
+      <a mat-menu-item (click)="logOut()">Logout</a>
+    </mat-menu>
+
+    <a *ngIf="!registered" (click)="openLogin()">
+      <span class="iconify" data-icon="mdi:login"></span>
+      Login</a
+    >
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer *ngIf="!registered">
+  <!--  -->
+
+  <div *ngIf="registered" class="list">
+    <span>Dashboard</span>
+    <a href="/">Groups</a>
+    <a href="/">Teachers</a>
+    <a href="/">Students</a>
+  </div>
+
+  <!--  -->
+
+  <div class="list">
+    <span>User</span>
+    <a (click)="openRegist()" *ngIf="!registered">Registration</a>
+    <a href="" *ngIf="registered">Edit profile</a>
+    <a href="" *ngIf="registered">Edit Password</a>
+    <a href="" *ngIf="registered">Passed Courses</a>
+    <a href="" *ngIf="registered">Logout</a>
+  </div>
+  <!--  -->
+
+  <div class="list">
+    <span>Courses</span>
+    <a href="/">Java</a>
+    <a href="/">C++</a>
+    <a href="/">Ruby</a>
+    <a href="/">JavaScript</a>
+    <a href="/">Node.js</a>
+    <a href="/">Python</a>
+  </div>
+
+  <!--  -->
+
+  <div class="list">
+    <span>Зв'язок з нами</span>
+    <a href="tel:+380-32-240-9999">+380-32-240-9999</a>
+    <a
+      href="https://www.linkedin.com/company/softserve/mycompany/verification/ "
+      target="_blank"
+      >LINKEDIN</a
+    >
+    <a href="https://www.facebook.com/SoftServeCompany" target="_blank"
+      >FACEBOOK</a
+    >
+    <a href="mailto:jdoe@softserveinc.com">Напишіть нам</a>
+  </div>
+</footer>
+<p style="text-align: center; margin-top: 20px; font-size: 13px">
+  © Copyright 2021 SoftServe
+</p>
