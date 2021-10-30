@@ -10,13 +10,14 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
+import { EmailExistComponent } from './error/email-exist/email-exist.component';
 
 @Component({
   selector: 'app-regist',
   templateUrl: './regist.component.html',
   styleUrls: ['./regist.component.scss'],
 })
+  
 export class RegistComponent implements OnInit {
   public hidePass = true;
   public hidePassConf = true;
@@ -76,7 +77,7 @@ export class RegistComponent implements OnInit {
   }
 
   public openLogIn() {
-    this.dialog.open(LoginComponent);
+    // TODO: this.dialog.open(LoginComponent);
   }
 
   // Password match func
@@ -109,12 +110,11 @@ export class RegistComponent implements OnInit {
               localStorage.setItem('qrCodeImage', res.qrCodeImage);
               console.log(res.qrCodeImage);
             }
-            // show success message for 7sec. and go to login page
-            setTimeout(() => {
-              this.myForm.reset();
-            }, 7000);
           },
           (err) => {
+            if (err.error.message == 'Email already exist. Please confirm it!') {
+              this.dialog.open(EmailExistComponent)
+            }
             this.formError = err.error.message + '!';
             console.log(err.error.status, this.formError);
           }

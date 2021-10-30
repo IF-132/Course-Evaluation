@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorComponent } from './error.component';
+import { EmailNotConfirmedComponent } from './email-not-confirmed.component';
 
-describe('ErrorComponent', () => {
-  let component: ErrorComponent;
-  let fixture: ComponentFixture<ErrorComponent>;
+describe('EmailNotConfirmedComponent', () => {
+  let component: EmailNotConfirmedComponent;
+  let fixture: ComponentFixture<EmailNotConfirmedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorComponent ]
+      declarations: [ EmailNotConfirmedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorComponent);
+    fixture = TestBed.createComponent(EmailNotConfirmedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

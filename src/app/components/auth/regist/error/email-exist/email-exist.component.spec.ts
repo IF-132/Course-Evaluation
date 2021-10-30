@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TwoFAComponent } from './two-fa.component';
+import { EmailExistComponent } from './email-exist.component';
 
-describe('TwoFAComponent', () => {
-  let component: TwoFAComponent;
-  let fixture: ComponentFixture<TwoFAComponent>;
+describe('EmailExistComponent', () => {
+  let component: EmailExistComponent;
+  let fixture: ComponentFixture<EmailExistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TwoFAComponent ]
+      declarations: [ EmailExistComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TwoFAComponent);
+    fixture = TestBed.createComponent(EmailExistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

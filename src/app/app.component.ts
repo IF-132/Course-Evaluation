@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from './components/auth/login/login.component';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import { RegistComponent } from './components/auth/regist/regist.component';
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit {
   constructor(private dialog: MatDialog, private router: Router) {}
 
   public openLogin(): void {
-    this.dialog.open(LoginComponent);
+    //TODO: this.dialog.open(LoginComponent);
   }
   public openRegist(): void {
     this.dialog.open(RegistComponent);
