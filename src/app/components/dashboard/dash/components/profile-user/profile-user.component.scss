@@ -1,0 +1,137 @@
+.profile-user {
+  display: flex;
+  align-items: center;
+  width: inherit;
+  &__ava {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #0e779a;
+    padding: 4% 4%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__username {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    margin-left: 8px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    color: #4e555ce5;
+  }
+
+  &__open-close-usermenu {
+    cursor: pointer;
+    width: 15px;
+    align-self: center;
+    height: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__settings {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    height: 300px;
+    color: #4e555ce5;
+    background-color: #e2e6f4;
+    top: 50px;
+    z-index: 2;
+    right: 1px;
+    border-radius: 5px;
+  }
+
+  &__username-content {
+    display: flex;
+  }
+  .settings-user {
+    display: flex;
+    margin-top: 9%;
+    margin-bottom: 12%;
+    width: 87%;
+
+    align-items: center;
+    &__ava {
+      margin-right: 5%;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #0e779a;
+      padding: 4% 4%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__name {
+      font-size: 1.3rem;
+    }
+    &__welcome{
+      color: #1bab41;
+    }
+  }
+  .closed {
+    display: none;
+  }
+
+  .mat-item {
+    margin-left: 10px;
+  }
+
+  .mat-nav-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (max-width: 830px) {
+  .profile-user {
+    flex-direction: column;
+    &__ava {
+      width: 100px;
+      height: 100px;
+       margin-bottom: 14%;
+      padding: 8% 8%;
+    }
+
+    &__username {
+      font-size: 1.5rem;
+    }
+    &__settings {
+      right: -16px;
+      top: 155px;
+    }
+  }
+}
+.spinner-profile {
+  width: 30px;
+  height: 30px;
+  background-color: #c41b38;
+}
+
+@media (max-width: 475px) {
+  .profile-user {
+    &__ava {
+      width: 70px;
+      height: 70px;
+    }
+
+    &__username {
+      font-size: 1.3rem;
+    }
+
+    &__settings {
+      right: -36px;
+      top: 117px;
+    }
+  }
+}
