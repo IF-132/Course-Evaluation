@@ -1,0 +1,151 @@
+<div class="regist" #regist>
+  <mat-card class="regist-card">
+    <div class="card-header">
+      <!-- TODO:  make error and success as Andrii Kukliak done!-->
+      <mat-card-title> Registration Form </mat-card-title>
+      <span mat-dialog-close>
+        <mat-icon style="cursor: pointer">close</mat-icon>
+      </span>
+    </div>
+    <mat-card-content class="card-content">
+      <form [formGroup]="myForm" (ngSubmit)="onRegist()">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Type First Name"
+            formControlName="firstName"
+            required
+          />
+          <mat-error *ngIf="firstName.hasError('required')">
+            First Name is <strong>required</strong> !
+          </mat-error>
+          <mat-error *ngIf="firstName.touched && firstName.invalid">
+            First Name should have at least 2 characters!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Type Last Name"
+            formControlName="lastName"
+            required
+          />
+          <mat-error *ngIf="lastName.hasError('required')">
+            Last Name is <strong>required</strong> !
+          </mat-error>
+          <mat-error *ngIf="lastName.touched && lastName.invalid">
+            Last Name should have at least 3 characters!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Type your email"
+            required
+          />
+          <mat-error *ngIf="email.touched && email.invalid">
+            Please enter valid e-mail!
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>required</strong> !
+          </mat-error>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            placeholder="Type your password"
+            required
+            [type]="hidePass ? 'password' : 'text'"
+            (change)="onPasswordChange()"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePass = !hidePass"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePass"
+          >
+            <mat-icon>{{
+              hidePass ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>required</strong> !
+          </mat-error>
+          <mat-error *ngIf="password.touched && password.invalid">
+            Password should have capital letter, at least 1 number,
+            symbol(#?!@$%^&_*-) and at least 8 characters!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="confirmPassword"
+            placeholder="Type your password"
+            required
+            [type]="hidePassConf ? 'password' : 'text'"
+            (change)="onPasswordChange()"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassConf = !hidePassConf"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassConf"
+          >
+            <mat-icon>{{
+              hidePassConf ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPassword.hasError('required')">
+            Confirming of Password is <strong>required</strong> !
+          </mat-error>
+          <mat-error *ngIf="confirmPassword.hasError('dontMatch')"
+            >Password do not match!</mat-error
+          >
+        </mat-form-field>
+        <div class="check">
+          <mat-checkbox
+            labelPosition="after"
+            formControlName="active_2fa"
+            (indeterminate)="(false)"
+          >
+            2-Step Verification
+          </mat-checkbox>
+        </div>
+
+        <button
+          class="btn"
+          mat-raised-button
+          color="primary"
+          [disabled]="myForm.invalid ? true : false"
+        >
+          Registre
+        </button>
+      </form>
+      <div class="anotherType-login">
+        <br />
+        <p>
+          <a class="btn" (click)="openLogIn()" mat-dialog-close>LOG IN</a>
+        </p>
+        <br />
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
