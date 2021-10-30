@@ -11,6 +11,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { CoursesComponent } from './courses/courses.component';
 import { HttpClientModule } from '@angular/common/http';
 import { angularMaterial } from "../../share/material/material";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { angularMaterial } from "../../share/material/material";
     CommonModule,
     HttpClientModule,
     angularMaterial,
+    RouterModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

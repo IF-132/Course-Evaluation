@@ -7,13 +7,14 @@ import { User } from 'src/app/share/models/User';
   providedIn: 'root'
 })
 export class TotalInfoService {
+  token: string | any = window.localStorage.getItem("token");
 
   constructor(private http: HttpClient) { }
 
   getAvilableCourses() {
     return this.http.get<any>('https://courseevaluator-main.herokuapp.com/api/v1/teachers/count', {
       headers: {
-        Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXJ2ZS1jb3Vyc2VAcmFtYmxlci5ydSIsInJvbGUiOltdLCJpZCI6OSwiYXV0aGVudGljYXRlZCI6dHJ1ZSwiaWF0IjoxNjM1NDkxODEyLCJleHAiOjE2MzU1NzgyMTJ9.3RTCN1wuf5Ho_F1biF2rnFUxVQNNYg6aXLkijj5Ve5Y'
+        Authorization: this.token
       }
     })
   }

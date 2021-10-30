@@ -1,9 +1,7 @@
 import {
   Component,
-  OnInit,
   ViewChild,
   ElementRef,
-  AfterViewInit,
 } from '@angular/core';
 
 @Component({
@@ -27,11 +25,12 @@ export class DashboardComponent  {
     for (let item of collection) {
       item.classList.remove('field-active');
     }
+
     this.handleToggleMenu();
     el.classList.add('field-active');
   }
 
-  handleToggleMenu() {
+  handleToggleMenu(): void {
     if (!this.asideMenu.nativeElement.classList.contains('active')) {
       this.asideMenu.nativeElement.classList.add('active');
     } else {

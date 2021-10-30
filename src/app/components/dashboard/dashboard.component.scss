@@ -116,10 +116,14 @@
       margin-bottom: 27%;
     }
     .aside-field {
-      margin-left: 12%;
-      padding: 2% 2%;
-      border-radius: 15px;
-      width: 40%;
+        margin-left: 12%;
+        padding: 5% 5%;
+        border-radius: 15px;
+        width: 60%;
+        color: #4e555ce5;
+    }
+    .aside-nav-title {
+      font-size: 1.6rem;
     }
   }
 
@@ -130,7 +134,7 @@
     width: 30px;
     height: 20px;
     z-index: 5;
-    top: 7%;
+    top: 4%;
     margin-left: 43px;
 
     span {
@@ -187,14 +191,18 @@
 
 @media (max-width: 425px) {
   .dashboard {
+    &__logo {
+      margin-bottom: 49%;
+    }
+
     .aside-field {
        margin-left: 0;
     }
     .burger {
+      width: 23px;
       top: 3%;
     }
    }
-
 }
 
 .active {
