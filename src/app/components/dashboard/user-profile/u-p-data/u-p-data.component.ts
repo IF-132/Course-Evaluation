@@ -22,7 +22,7 @@ export class UPDataComponent implements OnInit {
   userRole: [] | undefined;
 
   //TODO: get this links
-  linkToDashboard = '';
+  linkToDashboard = '/dashboard';
 
   constructor(private upDataService: UPDataService, private router: Router) {}
 
@@ -50,6 +50,6 @@ export class UPDataComponent implements OnInit {
       (error) => console.log(error)
     );
     localStorage.clear();
-    this.router.navigate([]);
+    this.router.navigate(['hello-page']);
   }
 }
