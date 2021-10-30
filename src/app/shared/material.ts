@@ -7,11 +7,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { CodeInputModule } from 'angular-code-input';
 import {
   MatMomentDateModule,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const angularMaterial = [
   MatCardModule,
@@ -25,6 +28,9 @@ export const angularMaterial = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatMomentDateModule,
+  MatMenuModule,
+  MatDialogModule,
+  CodeInputModule,
 ];
 
 export const matProvider = [

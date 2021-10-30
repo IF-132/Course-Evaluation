@@ -37,8 +37,8 @@ export class CoursesComponent implements OnInit {
     firstName: 'Yurii',
     lastName: 'Hunda',
     // roles: ['ROLE_STUDENT'],
-    // roles: ['ROLE_TEACHER'],
-    roles: ['ROLE_ADMIN'],
+    roles: ['ROLE_TEACHER'],
+    // roles: ['ROLE_ADMIN'],
     // roles: ['ROLE_STUDENT', 'ROLE_ADMIN', 'ROLE_TEACHER'],
   };
 
