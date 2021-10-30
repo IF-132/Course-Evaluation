@@ -5,10 +5,12 @@ import { DashComponent } from './components/dashboard/dash/dash.component';
 import { StudentsComponent } from './components/dashboard/students/students.component';
 import { CoursesComponent } from './components/dashboard/courses/courses.component';
  import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { HelloPageComponent } from './components/hello-page/hello-page.component';
 
 const routes: Routes = [
   {
-    path: "dashboard", component: DashboardComponent,
+     path: '', component: HelloPageComponent  },
+   { path: "dashboard", component: DashboardComponent ,
     children: [
       {path: "", component: DashComponent},
       {path: "courses", component: CoursesComponent},
@@ -18,8 +20,10 @@ const routes: Routes = [
   },
 ];
 
+
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
