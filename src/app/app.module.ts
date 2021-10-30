@@ -8,13 +8,11 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
 import { angularMaterial } from './share/material/material';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './share/loader/interceptor.service';
-import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
