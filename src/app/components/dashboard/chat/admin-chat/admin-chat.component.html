@@ -1,0 +1,10 @@
+<div id="chatContainer">
+   <app-sidebar (conversationClicked)="onConversationSelected($event)"></app-sidebar>
+   <div id="chat">
+      <div id="chatPlaceholder" *ngIf="!conversation">
+         <h2>Chat Room</h2>
+         <div class="seperator"></div>
+      </div>
+      <app-chat [conversation]="conversation" *ngIf="conversation"></app-chat>
+   </div>
+</div>

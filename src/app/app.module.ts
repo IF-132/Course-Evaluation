@@ -1,9 +1,14 @@
+import { ChatModule } from './components/dashboard/chat/chat.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
+
+import { CommonModule } from '@angular/common';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { CoursesComponent } from './components/dashboard/courses/courses.component';
 import { CourseFormActionComponent } from './components/dashboard/courses/course-form-action/course-form-action';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +30,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { TwoFAComponent } from './components/auth/two-fa/two-fa.component';
 import { InvalidEmailPasswComponent } from './components/auth/login/errors/invalid-email-passw/invalid-email-passw.component';
 import { angularMaterial, matProvider } from './share/angularMaterial/material';
-
+// import { AdminChatComponent } from './chat/admin-chat/admin-chat.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +51,7 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
     InvalidEmailPasswComponent,
     CoursesComponent,
     CourseFormActionComponent,
+    // AdminChatComponent,
   ],
   entryComponents: [
     InvalidEmailPasswComponent,
@@ -56,13 +62,15 @@ import { angularMaterial, matProvider } from './share/angularMaterial/material';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ChatModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     angularMaterial,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [matProvider],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

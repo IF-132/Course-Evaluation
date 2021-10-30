@@ -41,6 +41,11 @@ $Course-Evaluation-theme: mat.define-light-theme(
 
 /* You can add global styles to this file, and also import other style files */
 
+
+@import '~@ctrl/ngx-emoji-mart/picker';
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 html,
