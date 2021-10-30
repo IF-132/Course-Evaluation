@@ -1,0 +1,93 @@
+.flexed {
+  display: flex;
+  align-items: center;
+}
+
+.flx-dir-col {
+  flex-direction: column;
+}
+
+.flx-dir-row- {
+  flex-direction: row;
+}
+
+.just-cntr {
+  justify-content: center;
+}
+.just-spc-btw {
+  justify-content: space-between;
+}
+.just-spc-even {
+  justify-content: space-evenly;
+}
+
+.course-form {
+  z-index: 998;
+  position: absolute;
+  inset: 0 0;
+  margin: auto;
+  width: 500px;
+  height: 700px;
+  background-color: white;
+  animation: easyOpen 0.5s;
+  .course-form-title {
+    margin-bottom: 50px;
+    font-size: 52px;
+    color: #0052d4;
+  }
+
+  .course-formfields-container {
+    width: 80%;
+    display: flex;
+    .mat-form-field {
+      width: 100%;
+    }
+    .course-form-dates {
+      width: 100%;
+      display: flex;
+      .datepicker {
+        width: 45%;
+      }
+    }
+    .course-form-textarea {
+      textarea {
+        resize: none;
+      }
+    }
+    .course-form-buttons {
+      width: 100%;
+      .edit-button {
+        width: 150px;
+        height: 50px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+      .cancel-edit {
+        color: #0052d4;
+
+        &:hover {
+          border: 1px solid #0052d4;
+        }
+      }
+      .confirm-edit {
+        color: white;
+        background-color: #0052d4;
+      }
+      button[disabled] {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+      }
+    }
+  }
+}
+
+@keyframes easyOpen {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

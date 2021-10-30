@@ -1,4 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*
+    Overwriting css styles for material snackbar
+*/
+.green-snackbar,
+.red-snackbar {
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 19.4px 0.6px hsla(0, 0%, 86.3%, 0.7);
+  button {
+    background-color: white;
+  }
+}
+
+.green-snackbar {
+  background-color: rgb(3, 189, 71);
+  button {
+    color: rgb(3, 189, 71);
+  }
+}
+.red-snackbar {
+  background-color: #f44336;
+  button {
+    color: #f44336;
+  }
+}
