@@ -50,6 +50,6 @@ export class UPDataComponent implements OnInit {
       (error) => console.log(error)
     );
     localStorage.clear();
-    this.router.navigate(['/hello-page']);
+    this.router.navigate(['']);
   }
 }

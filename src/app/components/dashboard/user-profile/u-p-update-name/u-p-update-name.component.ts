@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UpdateUserName } from './updateUserNameModel';
 import { UPUpdateNameService } from './u-p-update-name.service';
@@ -9,11 +9,11 @@ import { UPUpdateNameService } from './u-p-update-name.service';
   styleUrls: ['./u-p-update-name.component.scss'],
   providers: [UPUpdateNameService],
 })
-export class UPUpdateNameComponent implements OnInit {
-  editUserData: FormGroup;
-  namePattern = '[A-Z]{0,1}[a-z]{0,20}';
+export class UPUpdateNameComponent {
+  public editUserData: FormGroup;
+  public namePattern = '[A-Z]{0,1}[a-z]{0,20}';
 
-  receivedUserData: UpdateUserName;
+  public receivedUserData: UpdateUserName;
 
   constructor(private upUpdateNameService: UPUpdateNameService) {
     this.editUserData = new FormGroup({
@@ -28,12 +28,8 @@ export class UPUpdateNameComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log('u-p-update-name is initialized! ');
-  }
-
   //passing data to server
-  editDataSubmission(): void {
+  public editDataSubmission(): void {
     let updatedUserData: UpdateUserName = {
       firstName: this.editUserData.value.firstName,
       lastName: this.editUserData.value.lastName,
