@@ -9,7 +9,6 @@ import { LoaderService } from 'src/app/share/loader/loader.service';
   styleUrls: ['./total-info.component.scss']
 })
 export class TotalInfoComponent implements OnInit {
-  // totalInfo$: Observable<TeacherStatDto>;
   totalInfo: TeacherStatDto;
 
   constructor(
