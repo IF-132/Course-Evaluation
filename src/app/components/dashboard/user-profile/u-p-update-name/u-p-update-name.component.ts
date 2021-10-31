@@ -35,9 +35,11 @@ export class UPUpdateNameComponent {
       lastName: this.editUserData.value.lastName,
     };
     this.upUpdateNameService.patchUserName(updatedUserData).subscribe(
-      (data: any) => console.log(data),
+      (data: any) => {
+        console.log(data);
+        window.location.reload();
+      },
       (error) => console.log(error)
     );
-    window.location.reload();
   }
 }
