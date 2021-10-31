@@ -9,11 +9,11 @@
   height: 100%;
   &__title {
     font-size: 1.7rem;
-    margin: 7% 0 10% 7%;
+    margin: 7% 0 0 7%;
   }
   &__content {
-    padding-top: 7%;
-    height: 31vh;
+    padding-top: 12%;
+    height: 320px;
   }
   &__data {
     padding-left: 7%;
@@ -44,7 +44,7 @@
 @media (max-width: 1440px) {
   .total-info {
     &__content {
-      height: 190px;
+      height: 209px;
     }
   }
 }
