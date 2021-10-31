@@ -83,7 +83,6 @@ export class RegistComponent implements OnInit {
   }
 
   // Password match func
-  // https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6
 
   onPasswordChange() {
     if (this.confirmPassword.value === this.password.value) {
