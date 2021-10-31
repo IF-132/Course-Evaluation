@@ -6,9 +6,8 @@ import {
   EventEmitter,
   DoCheck,
 } from '@angular/core';
-import { ITeacher } from 'src/app/components/teachers/teachers.service';
-
-import { ICourse } from '../courses.service';
+import { CourseDto } from 'src/app/share/models/CourseDto';
+import { TeacherToCourseDto } from 'src/app/share/models/TeacherToCourseDto';
 
 @Component({
   selector: 'app-update-course',
@@ -17,16 +16,16 @@ import { ICourse } from '../courses.service';
 })
 export class CourseFormActionComponent implements OnInit, DoCheck {
   public minDate: Date;
-  @Input() public course: ICourse;
-  @Input() public teachers: ITeacher[];
+  @Input() public course: CourseDto;
+  @Input() public teachers: TeacherToCourseDto[];
   @Input() public closeFormWindow: void;
   @Input() public title: string;
 
   @Output() private isFormOpen: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 
-  @Output() private courseForm: EventEmitter<ICourse> =
-    new EventEmitter<ICourse>();
+  @Output() private courseForm: EventEmitter<CourseDto> =
+    new EventEmitter<CourseDto>();
 
   public closeForm(): void {
     this.isFormOpen.emit(false);

@@ -6,15 +6,14 @@ import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import { RegistComponent } from './components/auth/regist/regist.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { TokenService } from './services/token.service';
 // import { appendFile } from 'fs';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent implements OnInit {
   public title = 'Course-Evaluation';
 
@@ -23,7 +22,11 @@ export class AppComponent implements OnInit {
   public decoded: any;
   public userName: any;
 
-  constructor(private dialog: MatDialog, private router: Router) { }
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    private tokenService: TokenService
+  ) {}
 
   public openLogin(): void {
     this.dialog.open(LoginComponent);
@@ -33,9 +36,11 @@ export class AppComponent implements OnInit {
   }
 
   public openRestorePassword(): void {
-    this.dialog.open(RestorePasswordComponent)
+    this.dialog.open(RestorePasswordComponent);
   }
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.tokenService.getToken();
+    this.tokenService.setCurrentUser();
     // chek if user logged in
     if (localStorage.hasOwnProperty('token')) {
       //decoding token
@@ -50,10 +55,9 @@ export class AppComponent implements OnInit {
   }
 
   // logout user
-  logOut(): void {
+  public logOut(): void {
     localStorage.clear();
     this.router.navigate(['']);
     window.location.reload();
   }
 }
-

@@ -29,8 +29,8 @@
       </div>
       <button
         *ngIf="
-          currentUser.roles.includes('ROLE_ADMIN') ||
-          currentUser.roles.includes('ROLE_TEACHER')
+          currentUser.role.includes('ROLE_ADMIN') ||
+          currentUser.role.includes('ROLE_TEACHER')
         "
         class="btn create-course"
         (click)="openCreateForm(courseForCreate, 'create')"
@@ -82,8 +82,8 @@
         <div class="buttons">
           <div
             *ngIf="
-              currentUser.roles.includes('ROLE_ADMIN') ||
-              (currentUser.roles.includes('ROLE_TEACHER') &&
+              currentUser.role.includes('ROLE_ADMIN') ||
+              (currentUser.role.includes('ROLE_TEACHER') &&
                 currentUser.id === course.teacherId)
             "
             class="remove-button icon-button"
@@ -94,8 +94,8 @@
           </div>
           <div
             *ngIf="
-              currentUser.roles.includes('ROLE_ADMIN') ||
-              (currentUser.roles.includes('ROLE_TEACHER') &&
+              currentUser.role.includes('ROLE_ADMIN') ||
+              (currentUser.role.includes('ROLE_TEACHER') &&
                 currentUser.id === course.teacherId)
             "
             (click)="openCreateForm(course, 'update'); scrollTo(toUpdate)"

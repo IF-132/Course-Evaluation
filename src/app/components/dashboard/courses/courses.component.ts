@@ -1,17 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ITeacher, TeachersService } from '../../teachers/teachers.service';
-import { CoursesService, ICourse } from './courses.service';
-
+import jwt_decode from 'jwt-decode';
 import { Subscription } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
-interface ICurrentUser {
-  id: number;
-  firstName: string;
-  lastName: string;
-  roles: string[];
-}
+import { TeachersService } from '../../teachers/teachers.service';
+import { CoursesService } from './courses.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { jwtDecodeUser } from 'src/app/share/models/jwtDecodeUser';
+import { CourseDto } from 'src/app/share/models/CourseDto';
+import { TeacherToCourseDto } from 'src/app/share/models/TeacherToCourseDto';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-courses',
@@ -20,37 +18,30 @@ interface ICurrentUser {
 })
 export class CoursesComponent implements OnInit {
   public Error: HttpErrorResponse;
-  public courses: ICourse[];
-  public teachers: ITeacher[];
+  public courses: CourseDto[];
+  public teachers: TeacherToCourseDto[];
 
   public currentlySelectedCourses = 'All';
   public formTitle = '';
-  public courseForCreate: ICourse;
-  public courseForUpdate: ICourse;
+  public courseForCreate: CourseDto;
+  public courseForUpdate: CourseDto;
   public isEditOpen: boolean;
   public isCreateOpen: boolean;
   public toggleAvailableCourses = true;
   public colsBreackpoint = 4;
 
-  public currentUser: ICurrentUser = {
-    id: 42,
-    firstName: 'Yurii',
-    lastName: 'Hunda',
-    // roles: ['ROLE_STUDENT'],
-    roles: ['ROLE_TEACHER'],
-    // roles: ['ROLE_ADMIN'],
-    // roles: ['ROLE_STUDENT', 'ROLE_ADMIN', 'ROLE_TEACHER'],
-  };
+  public currentUser: jwtDecodeUser;
 
   constructor(
     private _snackBar: MatSnackBar,
     private coursesService: CoursesService,
-    private teacherService: TeachersService
+    private teacherService: TeachersService,
+    private tokenService: TokenService
   ) {}
 
   public getAll(): Subscription {
     return this.coursesService.getAll().subscribe(
-      (courses: ICourse[]) => {
+      (courses: CourseDto[]) => {
         this.courses = courses;
       },
       (error: HttpErrorResponse) => {
@@ -61,17 +52,17 @@ export class CoursesComponent implements OnInit {
 
   public getAvailable(): Subscription {
     return this.coursesService.getAvailable().subscribe(
-      (courses) => {
+      (courses: CourseDto[]) => {
         this.courses = courses;
       },
       (error: HttpErrorResponse) => (this.Error = error)
     );
   }
 
-  public createCourse(course: ICourse): Subscription {
+  public createCourse(course: CourseDto): Subscription {
     this.closeForm(false);
     return this.coursesService.create(course).subscribe(
-      (createdCourse: ICourse) => {
+      (createdCourse: CourseDto) => {
         this.openSnackBar(
           `Course ${createdCourse.courseName} successfully created!`,
           'Ok',
@@ -80,13 +71,12 @@ export class CoursesComponent implements OnInit {
         return this.getAll();
       },
       (error: HttpErrorResponse) => {
-        console.log(error);
         return (this.Error = error);
       }
     );
   }
 
-  public updateCourse(course: ICourse): Subscription {
+  public updateCourse(course: CourseDto): Subscription {
     this.closeForm(false);
 
     return this.coursesService.update(course).subscribe(
@@ -111,7 +101,7 @@ export class CoursesComponent implements OnInit {
 
   public getTeachers(): Subscription {
     return this.teacherService.getTeachers().subscribe(
-      (teacher: ITeacher[]) => {
+      (teacher: TeacherToCourseDto[]) => {
         this.teachers = teacher;
       },
       (error: HttpErrorResponse) => {
@@ -119,14 +109,14 @@ export class CoursesComponent implements OnInit {
       }
     );
   }
-  public openCreateForm(course: ICourse, whichForm: string): void {
+  public openCreateForm(course: CourseDto, whichForm: string): void {
     whichForm === 'create'
       ? (this.isCreateOpen = true)
       : whichForm === 'update'
       ? (this.isEditOpen = true)
       : null;
     this.courseForUpdate = Object.assign({}, course);
-    this.courseForCreate = {} as ICourse;
+    this.courseForCreate = {} as CourseDto;
   }
 
   public closeForm(data: boolean): void {
@@ -161,7 +151,7 @@ export class CoursesComponent implements OnInit {
         ? 1
         : windowWidth <= 1000
         ? 2
-        : windowWidth >= 1300
+        : windowWidth >= 1550
         ? 4
         : 3;
   }
@@ -174,7 +164,15 @@ export class CoursesComponent implements OnInit {
     el.scrollIntoView();
   }
 
+  public setCurrentUser(): void {
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      this.currentUser = jwt_decode(token);
+    }
+  }
+
   public ngOnInit(): void {
+    this.setCurrentUser();
     this.getTeachers();
     this.getAll();
     this.setColsInGridList(window.innerWidth);

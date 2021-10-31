@@ -1,5 +1,3 @@
-
-<router-outlet></router-outlet>
 <header *ngIf="!registered">
   <div class="logo">
     <a href="">
@@ -39,7 +37,8 @@
 
     <a *ngIf="!registered" (click)="openLogin()">
       <span class="iconify" data-icon="mdi:login"></span>
-      Login</a>
+      Login</a
+    >
   </nav>
 </header>
 
@@ -82,8 +81,14 @@
   <div class="list">
     <span>Зв'язок з нами</span>
     <a href="tel:+380-32-240-9999">+380-32-240-9999</a>
-    <a href="https://www.linkedin.com/company/softserve/mycompany/verification/ " target="_blank">LINKEDIN</a>
-    <a href="https://www.facebook.com/SoftServeCompany" target="_blank">FACEBOOK</a>
+    <a
+      href="https://www.linkedin.com/company/softserve/mycompany/verification/ "
+      target="_blank"
+      >LINKEDIN</a
+    >
+    <a href="https://www.facebook.com/SoftServeCompany" target="_blank"
+      >FACEBOOK</a
+    >
     <a href="mailto:jdoe@softserveinc.com">Напишіть нам</a>
   </div>
 </footer>

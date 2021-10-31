@@ -18,7 +18,7 @@
   align-items: center;
 
   .courses-title {
-    width: 80vw;
+    width: 75vw;
     .title {
       text-transform: uppercase;
       margin-top: 30px;
@@ -27,6 +27,7 @@
     }
 
     .courses-action-container {
+      margin-top: 20px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -63,13 +64,14 @@
       height: 100px;
     }
     .card {
-      margin-top: 50px;
-      width: 80%;
+      // margin-top: 30px;
+      width: 85%;
+      height: 80%;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       flex-direction: column;
-      height: 300px;
+      // height: 300px;
       border: 1px solid #0052d4;
 
       &:hover {
@@ -91,14 +93,15 @@
         height: 150px;
         width: 90%;
         padding: 15px;
+        box-sizing: content-box;
         margin-top: -40px;
         background: linear-gradient(to left, #6fb1fc, #4364f7, #0052d4);
         overflow: hidden;
         .course-title {
           color: white;
           width: 100%;
-          line-height: 42px;
-          font-size: 32px;
+          line-height: 26px;
+          font-size: 24px;
           text-align: start;
           margin-left: 20px;
         }
@@ -127,6 +130,7 @@
       .description {
         height: 30%;
         text-align: justify;
+        overflow-wrap: anywhere;
       }
     }
     .see-more-button,
@@ -287,6 +291,7 @@
         font-size: 48px;
       }
       .courses-action-container {
+        justify-content: space-around;
         .toggle-courses {
           font-size: 14px;
           width: 45vw;
