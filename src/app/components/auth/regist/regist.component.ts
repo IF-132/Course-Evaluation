@@ -1,13 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
@@ -83,7 +76,6 @@ export class RegistComponent implements OnInit {
   }
 
   // Password match func
-
   onPasswordChange() {
     if (this.confirmPassword.value === this.password.value) {
       this.confirmPassword.setErrors(null);
