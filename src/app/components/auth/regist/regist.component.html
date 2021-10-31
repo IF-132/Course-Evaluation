@@ -83,10 +83,10 @@
               hidePass ? "visibility_off" : "visibility"
             }}</mat-icon>
           </button>
-          
+
           <mat-error *ngIf="password.touched && password.invalid">
-            Password <strong>required</strong> and should have capital letter, at least 1 number,
-            symbol(#?!@$%^&_*-) and at least 8 characters!
+            Password <strong>required</strong> and should have capital letter,
+            at least 1 number, symbol(#?!@$%^&_*-) and at least 8 characters!
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -138,20 +138,15 @@
         </button>
       </form>
       <div class="anotherType-login">
-        <br />
         <p>OR</p>
-        <br/>
-        <p>
           <button
-          (click)="openLogIn()" 
-          mat-raised-button
-          mat-dialog-close
-          class="btn"
+            (click)="openLogIn()"
+            mat-raised-button
+            mat-dialog-close
+            class="btn"
           >
-          LOG IN
+            LOG IN
           </button>
-        </p>
-        <br />
       </div>
     </mat-card-content>
   </mat-card>
