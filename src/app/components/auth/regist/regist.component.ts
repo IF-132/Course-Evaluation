@@ -12,13 +12,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { EmailExistComponent } from './error/email-exist/email-exist.component';
+import { EmailNotConfirmedComponent } from './error/email-not-confirmed/email-not-confirmed.component';
+import { SuccessComponent } from './success/success.component';
 
 @Component({
   selector: 'app-regist',
   templateUrl: './regist.component.html',
   styleUrls: ['./regist.component.scss'],
 })
-  
 export class RegistComponent implements OnInit {
   public hidePass = true;
   public hidePassConf = true;
@@ -105,7 +106,12 @@ export class RegistComponent implements OnInit {
           (res) => {
             console.log('Sign up - successfull!');
             console.log(res, res.body);
-            this.formSuccess = `Success! Check  ${res.email} to finish registration!`;
+            if (res) {
+              this.dialog.open(SuccessComponent);
+              setTimeout(() => {
+                window.location.reload();
+              }, 5000);
+            }
             if (this.active_2fa) {
               // add qr-image to local storage by 'qrCodeImage'- key
               localStorage.setItem('qrCodeImage', res.qrCodeImage);
@@ -113,11 +119,15 @@ export class RegistComponent implements OnInit {
             }
           },
           (err) => {
-            if (err.error.message == 'Email already exist. Please confirm it!') {
-              this.dialog.open(EmailExistComponent)
+            if (
+              err.error.message === 'Email already exist. Please confirm it'
+            ) {
+              this.dialog.open(EmailNotConfirmedComponent);
             }
-            this.formError = err.error.message + '!';
-            console.log(err.error.status, this.formError);
+            if (err.error.message === 'User already exist') {
+              this.dialog.open(EmailExistComponent);
+            }
+            console.log(err.error);
           }
         );
     }

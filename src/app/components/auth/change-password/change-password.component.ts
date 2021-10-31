@@ -64,7 +64,7 @@ export class ChangePasswordComponent implements OnInit {
       this.accountService.changePassword(requestParams)
         .subscribe(()=> {
           this.errorMessage = '';
-          window.location.href='/restore-password';
+          window.location.href='';
         },
         (error)=> {
           this.errorMessage = error.error.message;
@@ -72,7 +72,6 @@ export class ChangePasswordComponent implements OnInit {
             this.showResendLinkButton = true;
           }
         });
-      this.form.reset();
     }
   }
 

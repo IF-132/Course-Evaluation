@@ -1,5 +1,5 @@
 ::ng-deep mat-dialog-container {
-    padding: 0 7% 7% !important;
+    padding: 0 8% 7% !important;
 }
 
 mat-dialog-content {
@@ -23,6 +23,7 @@ mat-dialog-content {
         right: 1.5%;
         cursor: pointer;
     }
+
     span:hover {
         color: #177695;
     }
