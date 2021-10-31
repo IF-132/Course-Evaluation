@@ -35,7 +35,6 @@ import { TokenExpiredComponent } from './components/auth/two-fa/errors/token-exp
 import { InvalidConfirmCodeComponent } from './components/auth/two-fa/errors/invalid-confirm-code/invalid-confirm-code.component';
 // import { AdminChatComponent } from './chat/admin-chat/admin-chat.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,9 +56,9 @@ import { InvalidConfirmCodeComponent } from './components/auth/two-fa/errors/inv
     DashboardComponent,
     TokenExpiredComponent,
     InvalidConfirmCodeComponent,
- //   CoursesComponent,
- //   CourseFormActionComponent,
-   // CoursesComponent,
+    //   CoursesComponent,
+    //   CourseFormActionComponent,
+    // CoursesComponent,
     //CourseFormActionComponent,
     // AdminChatComponent,
   ],
@@ -84,17 +83,12 @@ import { InvalidConfirmCodeComponent } from './components/auth/two-fa/errors/inv
     HttpClientModule,
     angularMaterial,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
-    matProvider
+    matProvider,
   ],
-  bootstrap: [AppComponent, BrowserAnimationsModule,
-    AppComponent
-
-  ],
-
-
+  bootstrap: [AppComponent, AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
