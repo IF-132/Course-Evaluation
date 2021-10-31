@@ -42,7 +42,6 @@ export class UPDataComponent implements OnInit {
     this.userRole = getTokenRole();
   }
 
-
   //TODO: make rout to main page
   public logout(): void {
     this.upDataService.logOut().subscribe(

@@ -15,6 +15,10 @@ import { UpdateUserPassword } from './updatePasswordModel';
   providers: [UPUpdatePasswordService],
 })
 export class UPUpdatePasswordComponent implements OnInit {
+  hideOld = true;
+  hideNew = true;
+  hideConfirmed = true;
+
   editUserPassword: FormGroup;
 
   constructor(private upUpdatePasswordService: UPUpdatePasswordService) {
@@ -70,15 +74,14 @@ export class UPUpdatePasswordComponent implements OnInit {
     this.upUpdatePasswordService
       .patchUpdatedPassword(updatedUserPassword)
       .subscribe(
-        (data: any) => console.log(data),
+        (data: any) => {
+          console.log(data);
+          window.location.reload();
+        },
         (error) => {
           console.log(error);
           this.oldPassword.setErrors({ badOldPassword: true });
         }
       );
-    this.editUserPassword.reset();
-    this.oldPassword.setErrors(null);
-    this.newPassword.setErrors(null);
-    this.confirmedPassword.setErrors(null);
   }
 }
