@@ -1,3 +1,7 @@
+mat-card {
+    padding-top: 6%;
+}
+
 .user-data-form-items {
     display: flex;
     flex-direction: column;
@@ -10,6 +14,7 @@
 }
 
 .user-data-input {
+    padding-top: 0.6em;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
