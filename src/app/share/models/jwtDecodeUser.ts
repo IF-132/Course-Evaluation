@@ -1,8 +1,8 @@
 export interface jwtDecodeUser {
-    authenticated: boolean
-    exp: string
-    iat: string
-    id: number
-    role: []
-    sub: string
+  authenticated: boolean;
+  exp: string;
+  iat: string;
+  id: number;
+  role: string[];
+  sub: string;
 }
