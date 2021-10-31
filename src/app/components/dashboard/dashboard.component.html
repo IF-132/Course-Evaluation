@@ -4,7 +4,7 @@
   </div>
   <!-- <aside menu -->
   <div class="dashboard__aside-menu" #asideMenu>
-    <div class="dashboard__logo">
+    <div class="dashboard__logo" routerLink="" >
       <img src="/assets/img/dashboard/logo_serve.png" alt="logo">
     </div>
     <nav>
@@ -29,17 +29,6 @@
             </div>
             <div class="aside-nav-title">
               Courses
-            </div>
-          </div>
-        </li>
-        <li class="dashboard__students aside-field" #students (click)="handleToggleClassActive(students)"
-          routerLink="/dashboard/students">
-          <div class="aside-link">
-            <div class="aside-nav-img">
-              <img src="/assets/img/dashboard/student.png" alt="students">
-            </div>
-            <div class="aside-nav-title">
-              Students
             </div>
           </div>
         </li>
