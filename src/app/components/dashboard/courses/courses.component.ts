@@ -167,8 +167,9 @@ export class CoursesComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.tokenService.getToken();
+    this.tokenService.setCurrentUser();
     this.currentUser = this.tokenService.currentUser;
-    console.log(this.currentUser);
     this.getTeachers();
     this.getAll();
     console.log(this.tokenService.token);
