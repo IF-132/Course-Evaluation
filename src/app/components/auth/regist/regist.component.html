@@ -83,11 +83,9 @@
               hidePass ? "visibility_off" : "visibility"
             }}</mat-icon>
           </button>
-          <mat-error *ngIf="password.hasError('required')">
-            Password is <strong>required</strong> !
-          </mat-error>
+          
           <mat-error *ngIf="password.touched && password.invalid">
-            Password should have capital letter, at least 1 number,
+            Password <strong>required</strong> and should have capital letter, at least 1 number,
             symbol(#?!@$%^&_*-) and at least 8 characters!
           </mat-error>
         </mat-form-field>
@@ -136,13 +134,22 @@
           color="primary"
           [disabled]="myForm.invalid ? true : false"
         >
-          Registre
+          Register
         </button>
       </form>
       <div class="anotherType-login">
         <br />
+        <p>OR</p>
+        <br/>
         <p>
-          <a class="btn" (click)="openLogIn()" mat-dialog-close>LOG IN</a>
+          <button
+          (click)="openLogIn()" 
+          mat-raised-button
+          mat-dialog-close
+          class="btn"
+          >
+          LOG IN
+          </button>
         </p>
         <br />
       </div>
