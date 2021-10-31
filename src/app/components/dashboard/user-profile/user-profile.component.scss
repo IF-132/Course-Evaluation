@@ -1,10 +1,13 @@
 .user-profile {
   width: 100%;
-  display: grid;
-  grid-template-columns: 30% 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
 }
 
 app-u-p-data {
+  width: 30%;
   height: 100%;
   display: flex;
   align-items: stretch;
@@ -25,23 +28,19 @@ app-u-p-update-password {
 
 /* #### Mobile Phones Portrait #### */
 @media screen and (max-device-width: 480px) {
+  app-u-p-data{
+    width: 100%;
+    margin: 0;
+  }
+
   .user-profile {
     display: flex;
     flex-direction: column;
   }
 }
 
-/* #### Mobile Phones Landscape #### */
-@media screen and (max-device-width: 640px) {
-  .user-profile {
-    grid-template-columns: 40% 60%;
-  }
-}
-
-/* #### Tablets Portrait or Landscape #### */
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* some CSS here */
-  .user-profile {
-    grid-template-columns: 40% 60%;
+@media  (max-width: 768px) {
+  .edit-info{
+    margin-top: 7%;
   }
 }
