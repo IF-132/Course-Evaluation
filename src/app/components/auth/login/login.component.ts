@@ -8,6 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { TwoFAComponent } from '../two-fa/two-fa.component';
 import { jwtDecodeUser } from 'src/app/share/models/jwtDecodeUser';
 import { RestorePasswordComponent } from '../restore-password/restore-password.component';
+import { RegistComponent } from '../regist/regist.component';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +21,18 @@ export class LoginComponent implements OnInit {
   public form: FormGroup | any;
   private userInfo: jwtDecodeUser;
 
-  constructor(private router: Router, private loginService: LoginService, public dialog: MatDialog, private loginRef: MatDialogRef<LoginComponent>) {
+  constructor(
+    private router: Router, 
+    private loginService: LoginService, 
+    private dialog: MatDialog, 
+    private loginRef: MatDialogRef<LoginComponent>) {
     
   }
   
+  public regPopup():void {
+    this.loginRef.close();
+    this.dialog.open(RegistComponent);
+  }
 
   public openInvalidDataPopup():void {
     this.dialog.open(InvalidEmailPasswComponent)
@@ -34,6 +43,7 @@ export class LoginComponent implements OnInit {
   }
   
   public openRestorePassword(): void {
+    this.loginRef.close();
     this.dialog.open(RestorePasswordComponent)
   }
 
@@ -56,6 +66,7 @@ export class LoginComponent implements OnInit {
       this.userInfo = this.loginService.decodeToken(response.token);
       if(this.userInfo.authenticated) {
         this.loginRef.close();
+        this.router.navigate(['dashboard']);
       } else {
         this.loginRef.close();
         this.openTwoFAPopup();
@@ -68,15 +79,6 @@ export class LoginComponent implements OnInit {
       console.log(error)
     });
     this.form.reset();
-  }
-
-  public redirect(link:string):void {
-    if (link === "registration") {
-      this.router.navigate(['register']);
-    } else if (link === "forgotPassword") {
-      this.router.navigate(['restorePassword']);
-    }
-    
   }
 
   public get email() {

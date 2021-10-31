@@ -31,6 +31,8 @@ import { InvalidEmailPasswComponent } from './components/auth/login/errors/inval
 
 import { angularMaterial, matProvider } from './share/angularMaterial/material';
 import { CommonModule } from '@angular/common';
+import { TokenExpiredComponent } from './components/auth/two-fa/errors/token-expired/token-expired.component';
+import { InvalidConfirmCodeComponent } from './components/auth/two-fa/errors/invalid-confirm-code/invalid-confirm-code.component';
 // import { AdminChatComponent } from './chat/admin-chat/admin-chat.component';
 
 
@@ -53,6 +55,8 @@ import { CommonModule } from '@angular/common';
     TwoFAComponent,
     InvalidEmailPasswComponent,
     DashboardComponent,
+    TokenExpiredComponent,
+    InvalidConfirmCodeComponent,
  //   CoursesComponent,
  //   CourseFormActionComponent,
    // CoursesComponent,
