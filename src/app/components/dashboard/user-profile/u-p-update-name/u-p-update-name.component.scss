@@ -20,6 +20,15 @@ mat-form-field {
     margin: 0 5% 0.5em 0;
 }
 
+.mat-button, .mat-raised-button{
+    background-color: #1295c0;
+}
+
+.mat-button:hover, .mat-raised-button:hover {
+    box-shadow: 0 0 0.5em gray;
+    cursor: pointer;
+  }
+
 @media screen and (max-device-width: 480px) {
   mat-card {
       text-align: center;
