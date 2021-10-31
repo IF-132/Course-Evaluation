@@ -1,0 +1,47 @@
+<div class="profile-user">
+  <div class="profile-user__ava">
+    <img src="/assets/img/dashboard/ava.png" alt="avatar">
+  </div>
+
+  <div class="profile-user__username-content">
+    <div class="spinner" *ngIf="loaderService.isLoading | async">
+      <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+    <div class="profile-user__username"> {{user?.firstName}} {{user?.lastName}} </div>
+    <div class="profile-user__open-close-usermenu">
+      <img (click)="isOpen = !isOpen" [ngClass]="{'closed': isOpen}" class="open-settings"
+        src="/assets/img/dashboard/arr-op.png" alt="arrow">
+      <img (click)="isOpen = !isOpen" [ngClass]="{'closed': !isOpen}" class="close-settings closed"
+        src="/assets/img/dashboard/arr-cl.png" alt="arrow">
+    </div>
+  </div>
+
+  <div [ngClass]="{'closed': !isOpen}" class="profile-user__settings closed">
+    <div class="profile-user__settings-user settings-user">
+      <div class="settings-user__ava">
+        <img src="/assets/img/dashboard/ava.png" alt="avatar">
+      </div>
+      <div class="settings-user__name">
+        <div class="settings-user__welcome">Welcome </div>
+        <div class="settings-user__firstname-user__lastname">{{user?.firstName}} {{user?.lastName}}</div>
+      </div>
+    </div>
+    <mat-nav-list class="mat-nav-list"  routerLink="dashboard/profile">
+      <mat-list-item style="cursor: pointer; border-bottom: 1px solid silver;" >
+         <mat-icon>home</mat-icon>
+         <div class="mat-item" routerLink="/dashboard/user-profile"> Settings</div>
+      </mat-list-item>
+
+      <mat-list-item style="cursor: pointer;  border-bottom: 1px solid silver;" >
+        <mat-icon>logout</mat-icon>
+        <div class="mat-item"> Logout</div>
+     </mat-list-item>
+
+      <mat-list-item (click)="isOpen = !isOpen" style="cursor: pointer; border-bottom: 1px solid silver;">
+        <mat-icon style="color: rgb(226, 38, 38);">close</mat-icon>
+        <div class="mat-item"> Close</div>
+      </mat-list-item>
+
+     </mat-nav-list>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div id="sidebar">
+   <div id="row1">
+      <div id="sidebarHeader">
+         <div class="avatarContainer">
+            <img src="../../assets/images/user.png" />
+         </div>
+         <div class="actionsContainer">
+
+            <img src="../../assets/images/001-chat.png" />
+            <img src="../../assets/images/more.png" />
+         </div>
+      </div>
+      <div id="searchBox">
+         <input [(ngModel)]="searchChat" type="text" placeholder="Search or start the new chat" />
+      </div>
+   </div>
+
+   <div id="sidebarContent">
+      <!-- <div id="noConversations">All chats are archived</div> -->
+
+      <div class="conversation" *ngFor="
+         let conversation of !searchChat ? conversations : filteredConversations
+       " (click)="conversationClicked.emit(conversation)">
+         <div class="picture">
+            <img src="../../assets/images/user.png" />
+         </div>
+         <div class="content">
+            <div class="conversationHeader">
+               <div class="name">{{ conversation.name }}</div>
+               <div class="time">{{ conversation.time }}</div>
+            </div>
+            <div class="message">
+               <img *ngIf="!conversation.latestMessageRead" src="../../assets/images/003-read.png" />
+               <img *ngIf="conversation.latestMessageRead" src="../../assets/images/004-double-check.png" />
+               {{ conversation.latestMessage }}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,5 +1,4 @@
 <div class="two-factor-popup" >
-    <!-- <div id="popup"></div> -->
     <div class="two-fa-login">
         <mat-card class="login-card">
             <div class="card-header">
@@ -7,16 +6,20 @@
                     Authentication
                 </mat-card-title>
                 <span>
-                    <mat-icon>close</mat-icon>
+                    <mat-icon mat-dialog-close>close</mat-icon>
                 </span>
             </div>
             <mat-card-content class="card-content">
                 <form>
                     <mat-hint *ngIf="!isDownloadApp" class="installQuestion">
-                        Do you have installed app for two factor authentication?
+                        Have you already installed Google Authenticator for two factor authentication?
                     </mat-hint>
                     <mat-hint *ngIf="isDownloadApp && showQrCodeStatus" class="installAdvice">
-                        Download app on your phone and scan it.
+                        Download 
+                        <a href="https://apps.apple.com/ru/app/google-authenticator/id388497605" alt="google-authenticator">
+                            app 
+                        </a>
+                        on your phone and scan it.
                     </mat-hint>
                     <div class="choice-container-btn" *ngIf="!isDownloadApp">
                         <button 

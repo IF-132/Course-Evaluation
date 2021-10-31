@@ -1,15 +1,6 @@
-#popup {
-    background-color: grey;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    opacity: 70%;
-}
-
 .two-fa-login {
     height: 100%;
     width: 100%;
-    // position: absolute;
     position: fixed;
     top: 0;
     left: 0;
@@ -46,8 +37,15 @@
 
                 .installQuestion {
                     text-align: center;
-                    margin-top: 5%;
-                    margin-bottom: 15%;
+                    margin: 5% 5% 15% ;
+
+                    a {
+                        color: #1295C0;
+                    }
+
+                    a:hover {
+                        color: #102830;
+                    }
                 }
 
                 .installAdvice {

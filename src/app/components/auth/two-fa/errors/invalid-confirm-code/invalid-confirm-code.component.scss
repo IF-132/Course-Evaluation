@@ -1,0 +1,29 @@
+::ng-deep mat-dialog-container {
+    padding: 0 8% 7% !important;
+}
+
+mat-dialog-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+        width: 200px;
+        margin: 5% auto;
+    }
+
+    h3 {
+        padding-top: 4%;
+        text-align: center;
+    }
+    span {
+        position: absolute;
+        top: 4%;
+        right: 1.5%;
+        cursor: pointer;
+    }
+}
+
+
+

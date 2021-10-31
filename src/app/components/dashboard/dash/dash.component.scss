@@ -1,0 +1,207 @@
+.dash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 4% 0 4%;
+  &__teacher-user-data {
+    width: 100%;
+    height: 400px;
+  }
+  &__footer {
+    display: flex;
+    margin-top: 5%;
+  }
+}
+.header-dash {
+  &__content {
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 70px;
+    //TODO Only becouse search component mot exist
+    justify-content: flex-end;
+  }
+
+  &__user {
+    position: relative;
+  }
+
+  &__img {
+    width: 20px;
+    height: 20px;
+    padding-left: 2%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.chat {
+  flex: 0 1 100px;
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__content {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      animation-name: pop-in;
+      animation-duration: 5s;
+      /* the loop effect is only for presentation. The icon pops in only once, a few second after the page loads*/
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes pop-in {
+      from {
+        transform: scale(0.05, 0.05);
+      }
+
+      to {
+        transform: scale(1, 1);
+      }
+    }
+    img:hover {
+      opacity: 0.6;
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+  }
+}
+
+.courses {
+  flex: 1 1 550px;
+  margin-right: 2%;
+}
+
+.info {
+  flex: 1 1 250px;
+}
+
+@media (max-width: 1440px) {
+  .dash {
+    &__footer {
+      margin-top: 4%;
+    }
+  }
+
+  .header-dash {
+    &__content {
+      margin-bottom: 45px;
+    }
+  }
+  .chat {
+    display: flex;
+    align-items: center;
+    flex: 1 1 100px;
+    &__content {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media (max-width: 1104px) {
+  .header-dash {
+    &__content {
+      margin-bottom: 40px;
+    }
+    &__user {
+      //width: 22%;
+      margin-top: 1%;
+    }
+  }
+}
+
+@media (max-width: 982px) {
+  .dash {
+    &__footer {
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 815px) {
+  .dash {
+    &__teacher-user-data {
+      height: 200px;
+    }
+    .header-dash__user {
+      &__user {
+        margin-top: 19px;
+      }
+    }
+  }
+
+  .header-dash__user {
+    &__user {
+      margin-top: 19px;
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .dash {
+    &__footer {
+      display: block;
+      //margin-top: 9%;
+    }
+
+    &__teacher-user-data {
+      display: none;
+    }
+  }
+  .header-dash {
+    &__content {
+      justify-content: center;
+      padding-bottom: 2%;
+    }
+  }
+  .chat {
+    top: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash {
+    &__footer {
+      margin-top: 4%;
+    }
+  }
+  .header-dash {
+    &__user {
+      margin-top: 35px;
+    }
+    &__content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .dash {
+    &__footer {
+      margin-top: 15%;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .dash {
+    &__footer {
+      margin-top: 3%;
+    }
+    .header-dash {
+      &__user {
+        margin-top: 57px;
+      }
+    }
+  }
+}
