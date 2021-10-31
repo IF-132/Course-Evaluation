@@ -11,27 +11,6 @@
     margin: auto;
 
     .card-header {
-      .error {
-        margin: auto;
-        text-align: center;
-        font-family: Montserrat;
-        font-size: 1.5em;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: red;
-        width: 80%;
-      }
-
-      .success {
-        margin: auto;
-        text-align: center;
-        font-family: Montserrat;
-        font-size: 1.5em;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: green;
-        width: 80%;
-      }
       mat-card-title {
         text-align: center;
         margin: 4% 0 10% 0;
