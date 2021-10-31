@@ -1,3 +1,6 @@
+.shadowed {
+  box-shadow: 0 6px 19.4px 0.6px rgba(163, 150, 150, 0.7);
+}
 .flexed {
   display: flex;
   align-items: center;
@@ -29,11 +32,21 @@
   width: 500px;
   height: 700px;
   background-color: white;
+  border-radius: 10px;
+  // border: 2px solid #0052d4;
   animation: easyOpen 0.5s;
   .course-form-title {
     margin-bottom: 50px;
     font-size: 52px;
     color: #0052d4;
+
+    line-height: 55px;
+    .action-title {
+      font-weight: 900;
+      text-decoration: underline;
+      padding: 10px;
+      border-radius: 8px;
+    }
   }
 
   .course-formfields-container {
@@ -89,5 +102,11 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .course-form {
+    width: 350px;
   }
 }

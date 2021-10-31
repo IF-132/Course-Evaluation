@@ -1,5 +1,5 @@
 .shadowed {
-  box-shadow: 0 6px 19.4px 0.6px hsla(0, 0%, 86.3%, 0.7);
+  box-shadow: 0 6px 19.4px 0.6px rgba(190, 182, 182, 0.7);
 }
 
 .btn {
@@ -9,6 +9,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 8px;
+}
+
+.br-rad {
+  border-radius: 8px;
 }
 
 .courses {
@@ -16,7 +21,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
+  margin-top: 50px;
   .courses-title {
     width: 75vw;
     .title {
@@ -42,6 +47,7 @@
       }
 
       .toggle-courses {
+        color: #0052d4;
         text-transform: uppercase;
         font-size: 16px;
         margin-top: 30px;
@@ -72,7 +78,7 @@
       align-items: center;
       flex-direction: column;
       // height: 300px;
-      border: 1px solid #0052d4;
+      // border: 1px solid #0052d4;
 
       &:hover {
         .background-card {
@@ -90,6 +96,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
+        border-radius: 5px;
         height: 150px;
         width: 90%;
         padding: 15px;
@@ -104,6 +111,8 @@
           font-size: 24px;
           text-align: start;
           margin-left: 20px;
+          font-weight: 800;
+          text-shadow: 2px 3px #4364f7;
         }
 
         .course-teacher {
@@ -175,7 +184,7 @@
         position: absolute;
         bottom: 0;
         cursor: pointer;
-        color: black;
+        color: #0052d4;
         font-size: 16px;
         border-radius: 5px;
         padding: 8px;
@@ -303,10 +312,12 @@
       }
     }
     .courses-cards {
+      width: 90vw;
       .card {
+        width: 95%;
         .background-card {
           .course-title {
-            font-size: 28px;
+            font-size: 24px;
           }
         }
       }
@@ -316,6 +327,9 @@
 
 @media screen and (max-width: 530px) {
   .courses {
+    .mat-grid-list {
+      width: 90vw;
+    }
     .courses-title {
       .title {
         display: flex;

@@ -1,5 +1,10 @@
 <div class="shadowed #update course-form flexed just-cntr flx-dir-col">
-  <h2 class="course-form-title">{{ title }} course</h2>
+  <h2 class="course-form-title flexed flx-dir-col">
+    <span [class]="title" class="action-title">
+      {{ title }}
+    </span>
+    <!-- <span>course</span> -->
+  </h2>
   <form
     (ngSubmit)="onSubmit()"
     #f="ngForm"
@@ -66,7 +71,9 @@
       </mat-select>
     </mat-form-field>
 
-    <p *ngIf="f.invalid">Every field is required, please fill them</p>
+    <p class="form-error" *ngIf="f.touched && f.invalid">
+      Every field is required, please fill them
+    </p>
     <div class="course-form-buttons flexed just-spc-even">
       <button
         type="button"

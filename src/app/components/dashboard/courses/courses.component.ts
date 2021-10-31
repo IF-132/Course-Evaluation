@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import jwt_decode from 'jwt-decode';
 import { Subscription } from 'rxjs';
 
 import { TeachersService } from '../../teachers/teachers.service';
@@ -43,6 +42,7 @@ export class CoursesComponent implements OnInit {
     return this.coursesService.getAll().subscribe(
       (courses: CourseDto[]) => {
         this.courses = courses;
+        console.log(this.courses);
       },
       (error: HttpErrorResponse) => {
         this.Error = error;
@@ -90,10 +90,12 @@ export class CoursesComponent implements OnInit {
   public delete(id: number): Subscription {
     return this.coursesService.delete(id).subscribe(
       () => {
+        console.log(id);
         this.openSnackBar('Succsessfully deleted!', 'Ok', ['green-snackbar']);
         this.toggleAvailableCourses ? this.getAll() : this.getAvailable();
       },
       () => {
+        console.log(id);
         this.openSnackBar('Something went wrong!', 'Sorry', ['red-snackbar']);
       }
     );
@@ -110,9 +112,9 @@ export class CoursesComponent implements OnInit {
     );
   }
   public openCreateForm(course: CourseDto, whichForm: string): void {
-    whichForm === 'create'
+    whichForm === 'creating'
       ? (this.isCreateOpen = true)
-      : whichForm === 'update'
+      : whichForm === 'updating'
       ? (this.isEditOpen = true)
       : null;
     this.courseForUpdate = Object.assign({}, course);
@@ -161,20 +163,15 @@ export class CoursesComponent implements OnInit {
   }
 
   public scrollTo(el: HTMLElement): void {
-    el.scrollIntoView();
-  }
-
-  public setCurrentUser(): void {
-    const token = window.localStorage.getItem('token');
-    if (token) {
-      this.currentUser = jwt_decode(token);
-    }
+    el.scrollIntoView({ behavior: 'smooth' });
   }
 
   public ngOnInit(): void {
-    this.setCurrentUser();
+    this.currentUser = this.tokenService.currentUser;
+    console.log(this.currentUser);
     this.getTeachers();
     this.getAll();
+    console.log(this.tokenService.token);
     this.setColsInGridList(window.innerWidth);
   }
 }

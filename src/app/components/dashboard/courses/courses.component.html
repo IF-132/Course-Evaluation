@@ -16,7 +16,7 @@
       {{ currentlySelectedCourses }} courses ({{ courses.length }})
     </div>
     <div class="courses-action-container">
-      <div class="shadowed toggle-courses">
+      <div class="shadowed toggle-courses br-rad">
         <span>available courses</span>
         <mat-slide-toggle
           [(ngModel)]="toggleAvailableCourses"
@@ -33,7 +33,7 @@
           currentUser.role.includes('ROLE_TEACHER')
         "
         class="btn create-course"
-        (click)="openCreateForm(courseForCreate, 'create')"
+        (click)="openCreateForm(courseForCreate, 'creating')"
       >
         <mat-icon>add</mat-icon> Add Course
       </button>
@@ -52,11 +52,11 @@
       [ngClass]="{ hovered: course.hover }"
     >
       <mat-card
-        class="shadowed card"
+        class="shadowed card br-rad"
         (mouseenter)="course.hover = true"
         (mouseleave)="course.hover = false"
       >
-        <div class="shadowed background-card">
+        <div class="shadowed background-card br-rad">
           <mat-card-title class="course-title"
             >{{
               course.courseName.length > 30
@@ -98,7 +98,7 @@
               (currentUser.role.includes('ROLE_TEACHER') &&
                 currentUser.id === course.teacherId)
             "
-            (click)="openCreateForm(course, 'update'); scrollTo(toUpdate)"
+            (click)="openCreateForm(course, 'updating'); scrollTo(toUpdate)"
             class="edit-button icon-button"
           >
             <mat-icon color="amber">edit</mat-icon>
@@ -112,7 +112,7 @@
 
 <app-update-course
   class="shadowed"
-  [title]="'Edit'"
+  [title]="'Updating'"
   *ngIf="isEditOpen"
   [teachers]="teachers"
   [course]="courseForUpdate"
@@ -122,7 +122,7 @@
 
 <app-update-course
   class="shadowed"
-  [title]="'Create'"
+  [title]="'Creating'"
   *ngIf="isCreateOpen"
   [teachers]="teachers"
   [course]="courseForCreate"

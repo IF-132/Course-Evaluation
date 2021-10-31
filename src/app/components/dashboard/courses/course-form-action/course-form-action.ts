@@ -16,6 +16,7 @@ import { TeacherToCourseDto } from 'src/app/share/models/TeacherToCourseDto';
 })
 export class CourseFormActionComponent implements OnInit, DoCheck {
   public minDate: Date;
+  // public actionTitle: string;
   @Input() public course: CourseDto;
   @Input() public teachers: TeacherToCourseDto[];
   @Input() public closeFormWindow: void;

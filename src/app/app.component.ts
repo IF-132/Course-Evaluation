@@ -17,47 +17,10 @@ import { TokenService } from './services/token.service';
 export class AppComponent implements OnInit {
   public title = 'Course-Evaluation';
 
-  // TODO:  atribute "show" must be 'false' for unregistered user!
-  public registered: boolean;
-  public decoded: any;
-  public userName: any;
+  constructor(private tokenService: TokenService) {}
 
-  constructor(
-    private dialog: MatDialog,
-    private router: Router,
-    private tokenService: TokenService
-  ) {}
-
-  public openLogin(): void {
-    this.dialog.open(LoginComponent);
-  }
-  public openRegist(): void {
-    this.dialog.open(RegistComponent);
-  }
-
-  public openRestorePassword(): void {
-    this.dialog.open(RestorePasswordComponent);
-  }
   public ngOnInit(): void {
     this.tokenService.getToken();
     this.tokenService.setCurrentUser();
-    // chek if user logged in
-    if (localStorage.hasOwnProperty('token')) {
-      //decoding token
-      let tokenLoc: any = localStorage.getItem('token');
-      this.decoded = jwt_decode(tokenLoc);
-    }
-    console.log(this.decoded);
-
-    // set visibility fot logged user
-    this.registered = this.decoded.authenticated;
-    this.userName = this.decoded.sub;
-  }
-
-  // logout user
-  public logOut(): void {
-    localStorage.clear();
-    this.router.navigate(['']);
-    window.location.reload();
   }
 }
