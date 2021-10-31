@@ -10,7 +10,7 @@ header {
     line-height: 50px;
   }
 
-  & > nav {
+  nav {
     list-style-type: none;
     display: flex;
     color: #211d4d;
@@ -240,8 +240,8 @@ footer {
       margin: auto 0;
       line-height: 20px;
     }
-    & > nav > ul {
-      & > li {
+    & > nav {
+      a {
         margin-left: 1rem;
         font-size: 0.9em;
       }
