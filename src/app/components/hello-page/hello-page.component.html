@@ -1,5 +1,31 @@
 <!-- HERO COMPONENT -->
 
+<header>
+  <div class="logo">
+    <a href="">
+      <img src="../../assets/Logo.svg" alt="softserve logo" />
+    </a>
+  </div>
+  <nav>
+    <a *ngIf="registered" href="dashboard">Dashboard</a>
+
+    <a *ngIf="registered">
+      <span class="iconify" data-icon="mdi:account-circle"></span>
+      {{ userName }}
+    </a>
+
+    <a *ngIf="!registered" (click)="openLogin()">
+      <span class="iconify" data-icon="mdi:login"></span>
+      Login
+    </a>
+
+    <a *ngIf="registered" (click)="logOut()">
+      <span class="iconify" data-icon="mdi:logout"></span>
+      Logout
+    </a>
+  </nav>
+</header>
+
 <div class="hero-component container">
   <mat-grid-list gutterSize="5px" cols="2" rowHeight="5:1">
     <!--  -->
@@ -52,3 +78,25 @@
   </mat-grid-list>
   <img class="bg-like-image" src="../../assets/free-pic.png" alt="" />
 </div>
+
+<footer>
+  <div class="list">
+    <a *ngIf="!registered" (click)="openRegist()">Registration</a>
+
+    <a *ngIf="registered" href="dashboard">Dashboard</a>
+
+    <a href="tel:+380-32-240-9999">+380-32-240-9999</a>
+    <a
+      href="https://www.linkedin.com/company/softserve/mycompany/verification/ "
+      target="_blank"
+      >LINKEDIN</a
+    >
+    <a href="https://www.facebook.com/SoftServeCompany" target="_blank"
+      >FACEBOOK</a
+    >
+    <a href="mailto:jdoe@softserveinc.com">Напишіть нам</a>
+  </div>
+</footer>
+<p style="text-align: center; margin-top: 20px; font-size: 13px">
+  © Copyright 2021 SoftServe
+</p>

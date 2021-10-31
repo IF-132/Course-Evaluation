@@ -13,7 +13,7 @@
                 <form [formGroup]="form">                
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input type="email" matInput placeholder="Type your email" formControlName="email">                   
+                        <input type="email" matInput placeholder="Type your email" formControlName="email" >                   
                         <mat-icon matSuffix>perm_identity</mat-icon>
                         <mat-error *ngIf="email.touched && email.invalid && !email.hasError('required')">
                             Please enter valid e-mail!
@@ -59,7 +59,7 @@
                     </p>                
                 </form>
                 <div class="redirect-reg">              
-                    <p (click)="redirect('registration')">
+                    <p (click)="regPopup()">
                         SIGN UP
                     </p>                  
                 </div>
