@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AccountService } from '../../../services/account.service';
 import {ActivatedRoute} from "@angular/router";
 import { PasswordRestoreDto } from '../../../share/models/PasswordRestoreDto';
+import { RestorePasswordComponent } from '../restore-password/restore-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-change-password',
@@ -18,7 +20,9 @@ export class ChangePasswordComponent implements OnInit {
   public showResendLinkButton= false;
   private token: string = '';
   
-  constructor(private accountService: AccountService, private activatedRoute: ActivatedRoute) { }
+  constructor(private accountService: AccountService, 
+    private dialog: MatDialog,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -51,6 +55,10 @@ export class ChangePasswordComponent implements OnInit {
     } else {
       this.confirmPassword.setErrors({ dontMatch: true });
     }
+  }
+
+  public openRestorePassword() {
+    this.dialog.open(RestorePasswordComponent)
   }
 
   onSubmit() {
